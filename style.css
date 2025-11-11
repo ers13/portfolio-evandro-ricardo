@@ -437,38 +437,35 @@ body {
         display: none;
     }
 
-    /* Regras de estilo para os links de menu (Padrão) */
+    /* Estilo padrão dos links de seção no menu mobile */
     .nav-menu a {
         border-bottom: 1px solid var(--border-color);
         margin: 0;
         padding: 20px;
         display: block;
         text-align: center; 
-        color: var(--text-secondary); /* Garante a cor cinza dos links de seção */
-        background-color: var(--background-light); /* Garante o fundo branco */
+        color: var(--text-secondary); 
+        background-color: var(--background-light); 
     }
     
-    /* MOSTRA e ESTILIZA o botão de download no MENU (mobile) com estilo de CTA VERDE (ALTA ESPECIFICIDADE) */
+    /* CORREÇÃO FINAL: ESTILO CTA VERDE PARA O BOTÃO MOBILE (ALTA ESPECIFICIDADE) */
     .nav-menu a.download-cv-btn.download-mobile {
-        /* Regras que garantem a sobreposição */
         display: block; 
         background-color: var(--secondary-color); /* FUNDO VERDE */
         color: var(--text-light); /* TEXTO BRANCO */
         
-        /* Regras de formatação de botão */
         padding: 15px 20px; 
         text-decoration: none;
         font-weight: 700;
-        margin: 10px 20px; /* Margem para destacá-lo dos outros links */
+        margin: 10px 20px; /* Margem para destacá-lo */
         border-radius: 5px; 
-        border-bottom: none; /* Remove a borda inferior do item de menu padrão */
-        transition: background-color 0.3s;
+        border-bottom: none; /* Remove a borda inferior */
         text-align: center;
     }
     
     /* Hover para o botão de download mobile */
     .nav-menu a.download-cv-btn.download-mobile:hover {
-        background-color: #1e7e34; /* Um verde um pouco mais escuro no hover */
+        background-color: #1e7e34;
         color: var(--text-light);
     }
 
