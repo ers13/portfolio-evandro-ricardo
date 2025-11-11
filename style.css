@@ -69,7 +69,8 @@ body {
     z-index: 999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
-    display: block;
+    /* Por padrão, é bloco, mas será ocultado no mobile */
+    display: block; 
 }
 
 .download-cv-btn.download-desktop:hover {
@@ -80,10 +81,6 @@ body {
 .download-cv-btn i {
     margin-right: 8px;
 }
-
-/* CORREÇÃO: Esta regra foi removida para permitir que o botão apareça dentro do menu universal */
-/* .download-cv-btn.download-mobile { display: none; } */
-
 
 /* 2. CABEÇALHO E NAVEGAÇÃO - AGORA UNIFICADO (MENU HAMBURGER PARA TODOS) */
 .navbar {
@@ -112,6 +109,16 @@ body {
     text-decoration: none;
 }
 
+/* NOVO: Menu toggle sempre visível */
+.menu-toggle {
+    display: block; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
 /* Estilo universal para o menu, agora sempre vertical e fechado */
 .nav-menu {
     position: absolute;
@@ -124,6 +131,9 @@ body {
     transition: left 0.3s ease;
     box-shadow: 0 10px 10px rgba(0,0,0,0.05);
     padding-bottom: 10px; 
+    
+    /* Z-index para garantir que o menu fique acima do conteúdo */
+    z-index: 999; 
 }
 
 .nav-menu.active {
@@ -150,7 +160,7 @@ body {
     color: var(--primary-color);
 }
 
-/* ESTILO CTA VERDE para o botão mobile (AGORA UNIVERSALMENTE APLICADO NO MENU) */
+/* ESTILO CTA VERDE para o botão de download interno (mobile) - Agora Universal */
 .download-cv-btn.download-mobile {
     display: block; 
     background-color: var(--secondary-color); /* FUNDO VERDE */
@@ -172,16 +182,6 @@ body {
 }
 
 
-/* Menu toggle sempre visível */
-.menu-toggle {
-    display: block; 
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
 /* 3. SEÇÃO HERO (SOBRE) */
 .hero {
     background-color: var(--background-dark);
@@ -191,7 +191,7 @@ body {
     text-align: center;
     padding-top: 100px; /* Espaço para o navbar */
 }
-/* ... (Restante das Seções 3-7 permanecem inalteradas) ... */
+/* ... (Seções 3-7 do CSS permanecem inalteradas) ... */
 
 /* 8. RESPONSIVIDADE (MOBILE FIRST) */
 @media (max-width: 768px) {
@@ -204,17 +204,13 @@ body {
     }
 
     /* OCULTA o nome no cabeçalho em telas pequenas */
-    .nav-brand {
-        display: none;
-    }
+    /* Removido para manter o nav-brand visível e dar um toque de branding */
 
     /* OCULTA o botão de download FIXO (desktop) no mobile */
     .download-cv-btn.download-desktop {
         display: none;
     }
     
-    /* Regras do menu mobile e Download Mobile foram movidas para cima */
-
     /* Ajustes no Timeline para mobile: Torna a timeline linear */
     .timeline::after {
         left: 18px;
