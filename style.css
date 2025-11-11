@@ -1,7 +1,7 @@
 /* 1. VARIÁVEIS E CONFIGURAÇÕES GLOBAIS */
 :root {
     --primary-color: #007bff; /* Azul vibrante */
-    --secondary-color: #28a745; /* Verde para destaque (mantido apenas no desktop fixo) */
+    --secondary-color: #28a745; /* Verde para destaque */
     --background-light: #ffffff;
     --background-dark: #f8f9fa;
     --text-primary: #333;
@@ -104,7 +104,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px; /* Reduzido para 70px para melhor visualização no mobile */
+    height: 70px; 
 }
 
 .nav-brand {
@@ -428,7 +428,7 @@ body {
         height: 70px;
     }
 
-    /* NOVO: OCULTA o nome no cabeçalho em telas pequenas */
+    /* OCULTA o nome no cabeçalho em telas pequenas */
     .nav-brand {
         display: none;
     }
@@ -438,25 +438,42 @@ body {
         display: none;
     }
 
-    /* MOSTRA o botão de download no MENU (mobile) */
+    /* MOSTRA o botão de download no MENU (mobile) com estilo de CTA */
     .download-cv-btn.download-mobile {
-        /* Estilo para que se pareça com os outros links */
+        /* Revertido para o estilo de botão verde em destaque */
         display: block; 
-        background-color: transparent;
-        color: var(--text-secondary);
-        padding: 20px;
+        background-color: var(--secondary-color); 
+        color: var(--text-light); /* Texto branco */
+        padding: 15px 20px; /* Padding de botão */
         text-decoration: none;
-        font-weight: 600;
-        margin: 0;
-        border-radius: 0;
-        border-bottom: 1px solid var(--border-color);
+        font-weight: 700;
+        margin: 10px 20px; /* Margem para destacá-lo dos links */
+        border-radius: 5px; /* Bordas arredondadas */
+        border-bottom: none; /* Remove a borda padrão de link de menu */
+        transition: background-color 0.3s;
     }
     
     /* Hover para o botão de download mobile */
     .download-cv-btn.download-mobile:hover {
-        color: var(--primary-color);
-        background-color: var(--background-dark);
+        background-color: #1e7e34; /* Um verde um pouco mais escuro no hover */
+        color: var(--text-light);
     }
+
+    /* Remove a borda inferior do ÚLTIMO link de menu *apenas se não for o botão de download* */
+    /* No nosso caso, como o download é o último, garantimos que ele não tenha borda extra */
+    .nav-menu a {
+        border-bottom: 1px solid var(--border-color);
+        margin: 0;
+        padding: 20px;
+    }
+    
+    /* Regra específica para o item de download para remover a borda que ele herdaria */
+    .nav-menu a.download-mobile {
+        border-bottom: none;
+        padding: 15px 20px; /* Ajusta o padding de volta para o estilo de botão */
+        margin-top: 10px;
+    }
+
 
     /* Configuração do menu hambúrguer */
     .nav-menu {
@@ -469,23 +486,11 @@ body {
         text-align: center;
         transition: left 0.3s ease;
         box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-        padding-bottom: 0;
+        padding-bottom: 10px; /* Adiciona um pequeno espaço inferior */
     }
 
     .nav-menu.active {
         left: 0;
-    }
-
-    .nav-menu a {
-        margin: 0;
-        padding: 20px;
-        border-bottom: 1px solid var(--border-color);
-        display: block;
-    }
-    
-    /* Remove a borda inferior do ÚLTIMO item do menu (que é o botão de download) */
-    .nav-menu a:last-child {
-        border-bottom: none;
     }
 
     .menu-toggle {
