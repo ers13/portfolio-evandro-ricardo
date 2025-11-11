@@ -256,7 +256,7 @@ body {
 }
 
 
-/* 4.5. SEÇÃO PROJETOS E OTIMIZAÇÃO (NOVO) */
+/* 4.5. SEÇÃO PROJETOS E OTIMIZAÇÃO (NOVO E CORRIGIDO) */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
@@ -379,4 +379,354 @@ body {
     margin-bottom: 5px;
 }
 
-.
+.timeline-company {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.timeline-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.timeline-content li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+.timeline-content li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Destaque para Conquista/Prêmio (Ex: Anatel) */
+.achievement-highlight {
+    color: var(--secondary-color) !important;
+    font-weight: bold;
+    /* Altera o marcador para ser mais chamativo */
+}
+
+.achievement-highlight::before {
+    content: '\f005' !important; /* Ícone de estrela */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--secondary-color) !important;
+}
+
+
+/* 6. SEÇÃO FORMAÇÃO E CERTIFICAÇÕES */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.education-block h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.education-block ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.education-block li {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--border-color);
+    padding-left: 15px;
+}
+
+.education-block strong {
+    color: var(--text-primary);
+    font-weight: 700;
+    display: block;
+}
+
+
+/* 7. SEÇÃO CONTATO (RODAPÉ) */
+.footer {
+    background-color: var(--text-primary);
+    color: var(--text-light);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.footer .section-title {
+    color: var(--text-light);
+    /* Alinhado para rodapé */
+    margin-bottom: 20px; 
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Para garantir quebra de linha no mobile */
+}
+
+.contact-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-link i {
+    margin-right: 10px;
+    color: var(--secondary-color); /* Ícone verde de destaque */
+}
+
+.contact-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light); 
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-info span {
+    font-size: 1rem;
+    color: var(--border-color);
+    padding: 5px 15px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 20px;
+}
+
+.contact-info i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 20px;
+}
+
+
+/* 8. RESPONSIVIDADE (MOBILE FIRST) */
+@media (max-width: 768px) {
+    /* CORREÇÃO: Ajusta o scroll-padding-top e espaço da seção hero para mobile */
+    html {
+        scroll-padding-top: 70px;
+    }
+    
+    .navbar .container {
+        height: 70px;
+    }
+
+    /* MOBILE: Oculta menu horizontal e mostra hamburger */
+    .nav-menu {
+        /* Estilo padrão do menu mobile (escondido) */
+        display: flex;
+        position: absolute;
+        top: 70px;
+        left: -100%; 
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--background-light);
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        padding-bottom: 10px; 
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0; /* Mostra o menu quando ativo */
+    }
+    
+    .nav-menu a {
+        /* Estilo dos links no menu vertical */
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+        margin: 0;
+    }
+
+    .nav-menu a:hover {
+        background-color: var(--background-dark);
+    }
+
+    /* MOBILE: Oculta o botão de download FIXO (desktop) */
+    .download-cv-btn.download-desktop {
+        display: none;
+    }
+    
+    /* MOBILE: Exibe o botão de download dentro do menu (CTA) */
+    .download-cv-btn.download-mobile {
+        display: block; 
+        background-color: var(--secondary-color); 
+        color: var(--text-light); 
+        
+        padding: 15px 20px; 
+        font-weight: 700;
+        margin: 10px 20px; 
+        border-radius: 5px; 
+        border-bottom: none; 
+        text-align: center;
+    }
+    
+    /* Ícone maior (2.5rem) e sem borda/fundo */
+    .menu-toggle {
+        display: block; 
+        font-size: 2.5rem; /* Ícone visivelmente maior */
+        background: none; /* Remove fundo padrão do botão */
+        border: none; /* Remove borda padrão do botão */
+        color: var(--text-primary); /* Garante que o ícone tenha a cor correta */
+        cursor: pointer;
+        padding: 0; /* Ajuste o padding para focar apenas no ícone */
+    }
+    
+    /* Redução de espaço entre navbar e conteúdo (solicitado anteriormente) */
+    .hero {
+        padding-top: 70px; 
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    /* CORREÇÃO DE LAYOUT: Garante que os grids virem coluna única no mobile */
+    .skills-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr; /* Projetos em coluna única */
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajustes no Timeline para mobile: Torna a timeline linear */
+    .timeline::after {
+        left: 18px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 45px;
+        padding-right: 15px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 9px;
+    }
+    
+    .timeline-content {
+        padding: 15px 20px;
+    }
+}
+
+/* RESPONSIVIDADE ADICIONAL: AJUSTES PARA SMARTPHONES MENORES (Abaixo de 480px) */
+@media (max-width: 480px) {
+    .section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .contact-link {
+        font-size: 1rem;
+    }
+    
+    .contact-info span {
+        font-size: 0.9rem; /* Ajuste para telas menores */
+        padding: 7px 12px;
+    }
+}
+
+
+/* ------------------------------------------- */
+/* 9. BOTÃO FLUTUANTE VOLTAR AO TOPO (FINAL) */
+/* ------------------------------------------- */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Começa invisível */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+    transform: translateY(10px);
+}
+
+#scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scroll-to-top:hover {
+    background-color: #0056b3;
+}
