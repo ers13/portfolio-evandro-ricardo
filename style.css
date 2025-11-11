@@ -18,7 +18,8 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    /* Ajuste para cabeçalho + botão de download */
+    scroll-padding-top: 130px; 
 }
 
 body {
@@ -26,7 +27,7 @@ body {
     background-color: var(--background-light);
     color: var(--text-primary);
     line-height: 1.6;
-    /* CORREÇÃO CRUCIAL PARA RESPONSIVIDADE: Impede a barra de rolagem horizontal no mobile */
+    /* CORREÇÃO CRUCIAL PARA OVERFLOW: Impede barra de rolagem horizontal */
     overflow-x: hidden; 
 }
 
@@ -48,31 +49,11 @@ body {
     font-weight: 700;
 }
 
-/* ESTILO PARA O BOTÃO DE DOWNLOAD FIXO */
+/* ESTILO PARA O BOTÃO DE DOWNLOAD (NO DESKTOP) */
 .download-cv-btn {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    background-color: var(--secondary-color);
-    color: var(--text-light);
-    padding: 10px 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    z-index: 999;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
+    display: none; /* Escondido por padrão, será reativado no media query */
 }
 
-.download-cv-btn:hover {
-    background-color: #1e7e34;
-    transform: scale(1.05);
-}
-
-.download-cv-btn i {
-    margin-right: 8px;
-}
 
 /* 2. CABEÇALHO E NAVEGAÇÃO */
 .navbar {
@@ -84,7 +65,10 @@ body {
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transition: background-color 0.3s;
+    transition: height 0.3s;
+    /* Configuração para layout no mobile: */
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar .container {
@@ -92,6 +76,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    width: 100%; /* Garante que o container use a largura total */
 }
 
 .nav-brand {
@@ -126,10 +111,13 @@ body {
 .hero {
     background-color: var(--background-dark);
     min-height: 100vh;
+    /* Correção: Usar flex para centralizar conteúdo verticalmente */
     display: flex;
     align-items: center;
     text-align: center;
+    /* Ajuste para compensar o cabeçalho fixo */
     padding-top: 140px; 
+    padding-bottom: 40px;
 }
 
 /* ESTILO PARA A FOTO DE PERFIL */
@@ -304,6 +292,7 @@ body {
 .timeline-content ul {
     list-style-position: inside;
     padding-left: 0;
+    font-size: 0.95rem;
 }
 
 /* 6. SEÇÃO FORMAÇÃO */
@@ -315,4 +304,219 @@ body {
     margin: 0 auto;
 }
 
-.education
+.education-block h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 15px;
+}
+
+.education-block ul {
+    list-style: none;
+}
+
+.education-block li {
+    background-color: var(--background-dark);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* 7. RODAPÉ (CONTATO) */
+.footer {
+    background-color: #11151c;
+    color: var(--text-light);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.footer .section-title {
+    color: var(--text-light);
+}
+
+.footer-text {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contact-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--primary-color);
+}
+
+.contact-link i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    opacity: 0.7;
+}
+
+.contact-info span i {
+    margin-right: 8px;
+}
+
+.footer-copy {
+    border-top: 1px solid #333;
+    padding-top: 30px;
+    margin-top: 30px;
+    opacity: 0.5;
+}
+
+/* 8. RESPONSIVIDADE (MOBILE FIRST) */
+@media (max-width: 768px) {
+    html {
+        /* Ajuste para o tamanho final do header no mobile (70px + 50px do botão) */
+        scroll-padding-top: 120px; 
+    }
+    
+    .navbar .container {
+        height: 70px;
+    }
+
+    /* BOTÃO DE DOWNLOAD (NO MOBILE) */
+    .download-cv-btn {
+        display: block; /* Torna visível */
+        position: relative; /* Deixa de ser fixo */
+        background-color: var(--secondary-color);
+        color: var(--text-light);
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background-color 0.3s;
+    }
+
+    /* Esconde o botão quando o menu mobile está aberto */
+    .download-cv-btn.hidden-mobile {
+        display: none;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px; /* Abaixo do container do nav */
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--background-light);
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu a {
+        margin: 0;
+        padding: 15px;
+        border-bottom: 1px solid var(--border-color);
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* SEÇÃO HERO: Ajuste o padding para compensar o novo header */
+    .hero {
+        padding-top: 150px; 
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajustes no Timeline para mobile */
+    .timeline::after {
+        left: 18px; /* Move a linha para a esquerda */
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 45px; /* Reduz o padding para a esquerda */
+        padding-right: 15px; /* Ajusta o padding da direita */
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 9px; /* Alinha o ponto à linha central */
+    }
+    
+    .timeline-content {
+        padding: 15px 20px; /* Conteúdo mais compacto */
+    }
+}
+
+/* RESPONSIVIDADE ADICIONAL: AJUSTES PARA SMARTPHONES MENORES (Abaixo de 480px) */
+@media (max-width: 480px) {
+    .section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .contact-link {
+        font-size: 1rem;
+    }
+}
