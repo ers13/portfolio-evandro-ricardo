@@ -1,4 +1,6 @@
+/* ------------------------------------------- */
 /* 9. NOVO: BOTÃO FLUTUANTE VOLTAR AO TOPO */
+/* ------------------------------------------- */
 #scroll-to-top {
     position: fixed;
     bottom: 20px;
@@ -30,5 +32,3 @@
 #scroll-to-top:hover {
     background-color: #0056b3;
 }
-
-/* Fim do Bloco Adicionado */
