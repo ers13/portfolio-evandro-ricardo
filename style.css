@@ -428,6 +428,11 @@ body {
         height: 70px;
     }
 
+    /* NOVO: OCULTA o nome no cabeçalho em telas pequenas */
+    .nav-brand {
+        display: none;
+    }
+
     /* OCULTA o botão de download FIXO (desktop) no mobile */
     .download-cv-btn.download-desktop {
         display: none;
@@ -437,11 +442,11 @@ body {
     .download-cv-btn.download-mobile {
         /* Estilo para que se pareça com os outros links */
         display: block; 
-        background-color: transparent; /* Transparente como o restante */
-        color: var(--text-secondary); /* Cor do texto padrão do menu */
-        padding: 20px; /* Igual aos outros links */
+        background-color: transparent;
+        color: var(--text-secondary);
+        padding: 20px;
         text-decoration: none;
-        font-weight: 600; /* Igual aos outros links */
+        font-weight: 600;
         margin: 0;
         border-radius: 0;
         border-bottom: 1px solid var(--border-color);
