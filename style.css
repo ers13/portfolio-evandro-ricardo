@@ -18,8 +18,8 @@
 
 html {
     scroll-behavior: smooth;
-    /* Ajuste para cabeçalho + botão de download */
-    scroll-padding-top: 130px; 
+    /* Ajuste para o cabeçalho fixo */
+    scroll-padding-top: 80px; 
 }
 
 body {
@@ -27,7 +27,7 @@ body {
     background-color: var(--background-light);
     color: var(--text-primary);
     line-height: 1.6;
-    /* CORREÇÃO CRUCIAL PARA OVERFLOW: Impede barra de rolagem horizontal */
+    /* CORREÇÃO CRUCIAL PARA OVERFLOW: Impede barra de rolagem horizontal no mobile */
     overflow-x: hidden; 
 }
 
@@ -49,11 +49,31 @@ body {
     font-weight: 700;
 }
 
-/* ESTILO PARA O BOTÃO DE DOWNLOAD (NO DESKTOP) */
+/* ESTILO PARA O BOTÃO DE DOWNLOAD FIXO (Desktop) */
 .download-cv-btn {
-    display: none; /* Escondido por padrão, será reativado no media query */
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
+.download-cv-btn:hover {
+    background-color: #1e7e34;
+    transform: scale(1.05);
+}
+
+.download-cv-btn i {
+    margin-right: 8px;
+}
 
 /* 2. CABEÇALHO E NAVEGAÇÃO */
 .navbar {
@@ -65,10 +85,7 @@ body {
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transition: height 0.3s;
-    /* Configuração para layout no mobile: */
-    display: flex;
-    flex-direction: column;
+    transition: background-color 0.3s;
 }
 
 .navbar .container {
@@ -76,7 +93,6 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    width: 100%; /* Garante que o container use a largura total */
 }
 
 .nav-brand {
@@ -111,22 +127,27 @@ body {
 .hero {
     background-color: var(--background-dark);
     min-height: 100vh;
-    /* Correção: Usar flex para centralizar conteúdo verticalmente */
     display: flex;
     align-items: center;
     text-align: center;
-    /* Ajuste para compensar o cabeçalho fixo */
-    padding-top: 140px; 
-    padding-bottom: 40px;
+    padding-top: 100px; /* Espaço para o navbar */
 }
 
-/* ESTILO PARA A FOTO DE PERFIL */
+/* Garante que o conteúdo centralize corretamente */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ESTILO PARA A FOTO DE PERFIL: CORRIGE O SUMIÇO */
 .profile-pic {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 25px;
+    margin: 0 auto 25px auto; /* Centraliza a imagem */
+    display: block; /* Garante que a imagem se comporte como bloco */
     border: 5px solid var(--primary-color);
     box-shadow: 0 0 0 5px var(--background-light);
 }
@@ -173,7 +194,8 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Força no mínimo 2 colunas para desktop */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
 }
 
@@ -292,7 +314,6 @@ body {
 .timeline-content ul {
     list-style-position: inside;
     padding-left: 0;
-    font-size: 0.95rem;
 }
 
 /* 6. SEÇÃO FORMAÇÃO */
@@ -321,7 +342,6 @@ body {
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 10px;
-    font-size: 0.95rem;
 }
 
 /* 7. RODAPÉ (CONTATO) */
@@ -390,37 +410,30 @@ body {
 /* 8. RESPONSIVIDADE (MOBILE FIRST) */
 @media (max-width: 768px) {
     html {
-        /* Ajuste para o tamanho final do header no mobile (70px + 50px do botão) */
-        scroll-padding-top: 120px; 
+        scroll-padding-top: 70px;
     }
     
     .navbar .container {
         height: 70px;
     }
 
-    /* BOTÃO DE DOWNLOAD (NO MOBILE) */
+    /* OCULTA o botão de download FIXO no mobile */
     .download-cv-btn {
-        display: block; /* Torna visível */
-        position: relative; /* Deixa de ser fixo */
-        background-color: var(--secondary-color);
-        color: var(--text-light);
-        padding: 10px 0;
-        text-align: center;
-        width: 100%;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: background-color 0.3s;
+        display: none;
     }
 
-    /* Esconde o botão quando o menu mobile está aberto */
-    .download-cv-btn.hidden-mobile {
-        display: none;
+    /* GERAL: Garante que os grids virem coluna única no tablet/mobile */
+    .skills-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
     }
 
     .nav-menu {
         position: absolute;
-        top: 70px; /* Abaixo do container do nav */
+        top: 70px;
         left: -100%;
         width: 100%;
         flex-direction: column;
@@ -436,7 +449,7 @@ body {
 
     .nav-menu a {
         margin: 0;
-        padding: 15px;
+        padding: 20px;
         border-bottom: 1px solid var(--border-color);
         display: block;
     }
@@ -445,9 +458,8 @@ body {
         display: block;
     }
     
-    /* SEÇÃO HERO: Ajuste o padding para compensar o novo header */
     .hero {
-        padding-top: 150px; 
+        padding-top: 100px; 
     }
 
     .hero-title {
@@ -457,24 +469,16 @@ body {
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .education-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Ajustes no Timeline para mobile */
+    /* Ajustes no Timeline para mobile: Torna a timeline linear */
     .timeline::after {
-        left: 18px; /* Move a linha para a esquerda */
+        left: 18px; /* Move a linha central para a esquerda */
     }
 
     .timeline-item {
         width: 100%;
         padding-left: 45px; /* Reduz o padding para a esquerda */
-        padding-right: 15px; /* Ajusta o padding da direita */
+        padding-right: 15px; 
     }
 
     .timeline-item:nth-child(odd),
