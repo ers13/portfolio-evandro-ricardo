@@ -27,7 +27,7 @@ body {
     background-color: var(--background-light);
     color: var(--text-primary);
     line-height: 1.6;
-    /* CORREÇÃO CRUCIAL PARA FAZER A FAIXA BRANCA DESAPARECER */
+    /* CORREÇÃO CRUCIAL: Impede barra de rolagem horizontal e elimina faixa branca */
     overflow-x: hidden; 
     width: 100%; 
 }
