@@ -26,6 +26,8 @@ body {
     background-color: var(--background-light);
     color: var(--text-primary);
     line-height: 1.6;
+    /* CORREÇÃO CRUCIAL PARA RESPONSIVIDADE: Impede a barra de rolagem horizontal no mobile */
+    overflow-x: hidden; 
 }
 
 .container {
@@ -46,10 +48,10 @@ body {
     font-weight: 700;
 }
 
-/* NOVO: ESTILO PARA O BOTÃO DE DOWNLOAD FIXO */
+/* ESTILO PARA O BOTÃO DE DOWNLOAD FIXO */
 .download-cv-btn {
     position: fixed;
-    top: 100px; /* Posição abaixo do navbar */
+    top: 100px;
     right: 20px;
     background-color: var(--secondary-color);
     color: var(--text-light);
@@ -127,19 +129,18 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    /* CORREÇÃO AQUI: Espaçamento para o cabeçalho fixo */
     padding-top: 140px; 
 }
 
-/* NOVO: ESTILO PARA A FOTO DE PERFIL */
+/* ESTILO PARA A FOTO DE PERFIL */
 .profile-pic {
     width: 180px;
     height: 180px;
-    border-radius: 50%; /* Deixa a imagem circular */
+    border-radius: 50%;
     object-fit: cover;
     margin-bottom: 25px;
     border: 5px solid var(--primary-color);
-    box-shadow: 0 0 0 5px var(--background-light); /* Borda branca interna */
+    box-shadow: 0 0 0 5px var(--background-light);
 }
 
 .hero-title {
@@ -314,36 +315,4 @@ body {
     margin: 0 auto;
 }
 
-.education-block h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    border-left: 4px solid var(--secondary-color);
-    padding-left: 15px;
-}
-
-.education-block ul {
-    list-style: none;
-}
-
-.education-block li {
-    background-color: var(--background-dark);
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-/* 7. RODAPÉ (CONTATO) */
-.footer {
-    background-color: #11151c;
-    color: var(--text-light);
-    padding: 80px 0;
-    text-align: center;
-}
-
-.footer .section-title {
-    color: var(--text-light);
-}
-
-.footer-text {
-    margin-bottom
+.education
