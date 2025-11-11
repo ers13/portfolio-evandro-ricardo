@@ -401,17 +401,31 @@ body {
     color: var(--primary-color);
 }
 
+/* REFINAMENTO NA DIAGRAMAÇÃO DO BLOCO DE INFORMAÇÕES SECUNDÁRIAS */
 .contact-info {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px; 
     flex-wrap: wrap;
     margin-bottom: 40px;
-    opacity: 0.7;
+    opacity: 0.9;
+}
+
+.contact-info span {
+    padding: 8px 15px; /* Padding interno */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Borda sutil branca */
+    border-radius: 20px; /* Cantos arredondados (visual de tag/etiqueta) */
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+}
+
+.contact-info span:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Efeito sutil ao passar o mouse */
 }
 
 .contact-info span i {
     margin-right: 8px;
+    color: var(--primary-color); /* Mantém o ícone em azul */
 }
 
 .footer-copy {
@@ -571,6 +585,11 @@ body {
     
     .contact-link {
         font-size: 1rem;
+    }
+    
+    .contact-info span {
+        font-size: 0.9rem; /* Ajuste para telas menores */
+        padding: 7px 12px;
     }
 }
 
