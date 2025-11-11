@@ -325,7 +325,7 @@ body {
     padding-left: 0;
 }
 
-/* 6. SEÇÃO FORMAÇÃO (REVERTIDA PARA O ESTILO SIMPLES) */
+/* 6. SEÇÃO FORMAÇÃO (COM ESTILO DE LISTA SIMPLES) */
 .education-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
