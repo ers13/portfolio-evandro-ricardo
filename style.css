@@ -27,9 +27,9 @@ body {
     background-color: var(--background-light);
     color: var(--text-primary);
     line-height: 1.6;
-    /* CORREÇÕES PARA O OVERFLOW */
+    /* CORREÇÃO CRUCIAL PARA FAZER A FAIXA BRANCA DESAPARECER */
     overflow-x: hidden; 
-    width: 100vw; /* Garante que o corpo não exceda o viewport */
+    width: 100%; 
 }
 
 .container {
@@ -571,7 +571,7 @@ body {
 
 
 /* ------------------------------------------- */
-/* 9. NOVO: BOTÃO FLUTUANTE VOLTAR AO TOPO */
+/* 9. BOTÃO FLUTUANTE VOLTAR AO TOPO (FINAL) */
 /* ------------------------------------------- */
 #scroll-to-top {
     position: fixed;
