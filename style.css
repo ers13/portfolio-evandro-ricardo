@@ -147,7 +147,7 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    padding-top: 100px; /* Espaço para o navbar */
+    padding-top: 100px; /* Espaço para o navbar (DESKTOP) */
 }
 
 .hero .container {
@@ -541,9 +541,15 @@ body {
         text-align: center;
     }
     
-    /* MOBILE: Mostra o ícone de toggle */
+    /* MOBILE: Mostra o ícone de toggle (Alteração para ícone maior e visível) */
     .menu-toggle {
         display: block; 
+        font-size: 1.7rem; 
+    }
+    
+    /* MOBILE: Redução de espaço entre navbar e conteúdo (Alteração para aproximar) */
+    .hero {
+        padding-top: 70px; 
     }
     
     .hero-title {
