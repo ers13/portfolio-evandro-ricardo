@@ -738,3 +738,92 @@ body {
 #scroll-to-top:hover {
     background-color: #0056b3;
 }
+/* ========================================================== */
+/* 10. OTIMIZAÇÃO PARA IMPRESSÃO (PDF) - Adicionar ao style.css */
+/* ========================================================== */
+
+@media print {
+    
+    /* Força o uso do fundo e cores no PDF */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        background: white;
+    }
+    
+    /* Remove todo o layout que não deve aparecer no documento (navegação, botões) */
+    .navbar,
+    .download-cv-btn,
+    .cta-button,
+    #scroll-to-top,
+    .footer-copy {
+        display: none !important;
+    }
+    
+    /* Configura o container para usar o espaço completo do PDF */
+    .container {
+        max-width: none;
+        padding: 0 40px; /* Margem lateral no PDF */
+    }
+    
+    .section {
+        padding: 40px 0;
+        margin: 0;
+        /* HACK: Força a quebra de página antes de cada seção grande, se necessário */
+        page-break-before: auto;
+        page-break-after: auto;
+    }
+    
+    /* Garante que elementos de fundo colorido (como a seção de projetos) apareçam */
+    #projetos {
+        background-color: var(--background-dark) !important;
+    }
+    
+    /* Ajusta o Hero para o topo da primeira página */
+    .hero {
+        padding-top: 40px !important;
+        min-height: auto;
+    }
+
+    /* Otimiza a Timeline para quebrar de forma limpa, mantendo o estilo */
+    .timeline-item {
+        page-break-inside: avoid; /* Evita quebra dentro de um item */
+    }
+
+    /* Corrige o padding do Hero que foi removido no HTML de impressão */
+    .hero .container {
+        padding: 0 40px !important;
+    }
+
+    /* ESTILO DO NOVO RODAPÉ DE CONTATO NO PDF */
+    .contact-section {
+        background-color: var(--primary-color) !important;
+        color: white;
+        padding: 30px 40px !important;
+    }
+    
+    .contact-section .section-title {
+        color: white !important;
+        border-bottom-color: var(--secondary-color) !important;
+    }
+
+    .contact-info-pdf {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 40px;
+        color: white;
+        font-size: 1rem;
+    }
+
+    .contact-info-pdf .info-block i {
+        color: var(--secondary-color) !important;
+        margin-right: 10px;
+    }
+
+}
