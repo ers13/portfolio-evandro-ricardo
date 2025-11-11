@@ -81,10 +81,8 @@ body {
     margin-right: 8px;
 }
 
-/* Esconde o item do menu no desktop (porque o botão fixo já o substitui) */
-.download-cv-btn.download-mobile {
-    display: none;
-}
+/* CORREÇÃO: Esta regra foi removida para permitir que o botão apareça dentro do menu universal */
+/* .download-cv-btn.download-mobile { display: none; } */
 
 
 /* 2. CABEÇALHO E NAVEGAÇÃO - AGORA UNIFICADO (MENU HAMBURGER PARA TODOS) */
@@ -114,7 +112,7 @@ body {
     text-decoration: none;
 }
 
-/* NOVO: Estilo universal para o menu, agora sempre vertical e fechado */
+/* Estilo universal para o menu, agora sempre vertical e fechado */
 .nav-menu {
     position: absolute;
     top: 70px;
@@ -152,7 +150,29 @@ body {
     color: var(--primary-color);
 }
 
-/* NOVO: Menu toggle sempre visível */
+/* ESTILO CTA VERDE para o botão mobile (AGORA UNIVERSALMENTE APLICADO NO MENU) */
+.download-cv-btn.download-mobile {
+    display: block; 
+    background-color: var(--secondary-color); /* FUNDO VERDE */
+    color: var(--text-light); /* TEXTO BRANCO */
+    
+    padding: 15px 20px; 
+    text-decoration: none;
+    font-weight: 700;
+    margin: 10px 20px; /* Margem para destacá-lo */
+    border-radius: 5px; 
+    border-bottom: none; /* Remove a borda inferior */
+    text-align: center;
+}
+
+/* Hover para o botão de download mobile */
+.download-cv-btn.download-mobile:hover {
+    background-color: #1e7e34;
+    color: var(--text-light);
+}
+
+
+/* Menu toggle sempre visível */
 .menu-toggle {
     display: block; 
     background: none;
@@ -161,7 +181,6 @@ body {
     color: var(--primary-color);
     cursor: pointer;
 }
-
 
 /* 3. SEÇÃO HERO (SOBRE) */
 .hero {
@@ -172,9 +191,7 @@ body {
     text-align: center;
     padding-top: 100px; /* Espaço para o navbar */
 }
-
-/* ... (restante do código até a seção 8 permanece inalterado) ... */
-
+/* ... (Restante das Seções 3-7 permanecem inalteradas) ... */
 
 /* 8. RESPONSIVIDADE (MOBILE FIRST) */
 @media (max-width: 768px) {
@@ -186,35 +203,119 @@ body {
         height: 70px;
     }
 
-    /* REMOVEMOS: Estilos de menu (nav-menu, nav-menu a, menu-toggle) pois agora são universais */
-    
-    /* Oculta o botão de download FIXO (desktop) no mobile */
+    /* OCULTA o nome no cabeçalho em telas pequenas */
+    .nav-brand {
+        display: none;
+    }
+
+    /* OCULTA o botão de download FIXO (desktop) no mobile */
     .download-cv-btn.download-desktop {
         display: none;
     }
     
-    /* Estilo CTA VERDE para o botão mobile (AGORA VISÍVEL APENAS NO MENU) */
-    .download-cv-btn.download-mobile {
-        display: block; 
-        background-color: var(--secondary-color); /* FUNDO VERDE */
-        color: var(--text-light); /* TEXTO BRANCO */
-        
-        padding: 15px 20px; 
-        text-decoration: none;
-        font-weight: 700;
-        margin: 10px 20px; /* Margem para destacá-lo */
-        border-radius: 5px; 
-        border-bottom: none; /* Remove a borda inferior */
-        text-align: center;
+    /* Regras do menu mobile e Download Mobile foram movidas para cima */
+
+    /* Ajustes no Timeline para mobile: Torna a timeline linear */
+    .timeline::after {
+        left: 18px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 45px;
+        padding-right: 15px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 9px;
     }
     
-    /* Hover para o botão de download mobile */
-    .download-cv-btn.download-mobile:hover {
-        background-color: #1e7e34;
-        color: var(--text-light);
+    .timeline-content {
+        padding: 15px 20px;
     }
 
-    /* ... (restante das regras de responsividade) ... */
+    /* GERAL: Garante que os grids virem coluna única no tablet/mobile */
+    .skills-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* ... (restante do código CSS permanece inalterado) ... */
+/* RESPONSIVIDADE ADICIONAL: AJUSTES PARA SMARTPHONES MENORES (Abaixo de 480px) */
+@media (max-width: 480px) {
+    .section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .contact-link {
+        font-size: 1rem;
+    }
+    
+    .contact-info span {
+        font-size: 0.9rem; /* Ajuste para telas menores */
+        padding: 7px 12px;
+    }
+}
+
+
+/* ------------------------------------------- */
+/* 9. BOTÃO FLUTUANTE VOLTAR AO TOPO (FINAL) */
+/* ------------------------------------------- */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Começa invisível */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+    transform: translateY(10px);
+}
+
+#scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scroll-to-top:hover {
+    background-color: #0056b3;
+}
