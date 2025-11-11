@@ -69,7 +69,6 @@ body {
     z-index: 999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
-    /* Por padrão, é bloco, mas será ocultado no mobile */
     display: block; 
 }
 
@@ -82,7 +81,13 @@ body {
     margin-right: 8px;
 }
 
-/* 2. CABEÇALHO E NAVEGAÇÃO - AGORA UNIFICADO (MENU HAMBURGER PARA TODOS) */
+/* Oculta o item do menu no desktop (porque o botão fixo já o substitui) */
+.download-cv-btn.download-mobile {
+    display: none;
+}
+
+
+/* 2. CABEÇALHO E NAVEGAÇÃO - REVERTIDO PARA RESPONSIVO (DESKTOP HORIZONTAL) */
 .navbar {
     position: fixed;
     top: 0;
@@ -109,76 +114,29 @@ body {
     text-decoration: none;
 }
 
-/* NOVO: Menu toggle sempre visível */
-.menu-toggle {
-    display: block; 
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
-/* Estilo universal para o menu, agora sempre vertical e fechado */
+/* DESKTOP: Menu Horizontal */
 .nav-menu {
-    position: absolute;
-    top: 70px;
-    left: -100%; /* Esconde por padrão */
-    width: 100%;
-    flex-direction: column;
-    background-color: var(--background-light);
-    text-align: center;
-    transition: left 0.3s ease;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.05);
-    padding-bottom: 10px; 
-    
-    /* Z-index para garantir que o menu fique acima do conteúdo */
-    z-index: 999; 
-}
-
-.nav-menu.active {
-    left: 0; /* Mostra o menu */
+    display: flex;
+    gap: 25px; 
+    align-items: center;
 }
 
 .nav-menu a {
-    /* Estilo de item de menu (bloco vertical) */
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 600;
-    display: block;
-    text-align: center;
-    
-    /* Estilo de bloco do menu mobile */
-    border-bottom: 1px solid var(--border-color);
-    margin: 0;
-    padding: 20px;
-    
     transition: color 0.3s;
+    padding: 0;
+    border-bottom: none;
 }
 
 .nav-menu a:hover {
     color: var(--primary-color);
 }
 
-/* ESTILO CTA VERDE para o botão de download interno (mobile) - Agora Universal */
-.download-cv-btn.download-mobile {
-    display: block; 
-    background-color: var(--secondary-color); /* FUNDO VERDE */
-    color: var(--text-light); /* TEXTO BRANCO */
-    
-    padding: 15px 20px; 
-    text-decoration: none;
-    font-weight: 700;
-    margin: 10px 20px; /* Margem para destacá-lo */
-    border-radius: 5px; 
-    border-bottom: none; /* Remove a borda inferior */
-    text-align: center;
-}
-
-/* Hover para o botão de download mobile */
-.download-cv-btn.download-mobile:hover {
-    background-color: #1e7e34;
-    color: var(--text-light);
+/* DESKTOP: Botão Hamburger escondido */
+.menu-toggle {
+    display: none; 
 }
 
 
@@ -191,7 +149,335 @@ body {
     text-align: center;
     padding-top: 100px; /* Espaço para o navbar */
 }
-/* ... (Seções 3-7 do CSS permanecem inalteradas) ... */
+
+.hero .container {
+    /* Garante que o conteúdo não toque as bordas no mobile */
+    padding-top: 40px; 
+    padding-bottom: 40px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--background-light);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.hero-summary {
+    background-color: var(--background-light);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.hero-summary p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+/* 4. SEÇÃO HABILIDADES */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.skill-card {
+    background-color: var(--background-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.skill-title {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.skill-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+
+/* 5. SEÇÃO EXPERIÊNCIA (TIMELINE) */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Linha vertical central */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container de cada item */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* Bolinha de marcador */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: var(--background-light);
+    border: 4px solid var(--primary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Item à esquerda */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 60px;
+}
+
+/* Item à direita */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 60px;
+}
+
+/* Ajuste da posição da bolinha para a direita */
+.timeline-item:nth-child(even)::after {
+    left: -16px;
+}
+
+/* Conteúdo interno da experiência */
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--background-light);
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-period {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.timeline-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.timeline-company {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.timeline-content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.timeline-content li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+.timeline-content li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+/* 6. SEÇÃO FORMAÇÃO E CERTIFICAÇÕES */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.education-block h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.education-block ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.education-block li {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--border-color);
+    padding-left: 15px;
+}
+
+.education-block strong {
+    color: var(--text-primary);
+    font-weight: 700;
+    display: block;
+}
+
+
+/* 7. SEÇÃO CONTATO (RODAPÉ) */
+.footer {
+    background-color: var(--text-primary);
+    color: var(--text-light);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.footer .section-title {
+    color: var(--text-light);
+    /* Alinhado para rodapé */
+    margin-bottom: 20px; 
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Para garantir quebra de linha no mobile */
+}
+
+.contact-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-link i {
+    margin-right: 10px;
+    color: var(--secondary-color); /* Ícone verde de destaque */
+}
+
+.contact-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light); 
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-info span {
+    font-size: 1rem;
+    color: var(--border-color);
+    padding: 5px 15px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 20px;
+}
+
+.contact-info i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 20px;
+}
+
 
 /* 8. RESPONSIVIDADE (MOBILE FIRST) */
 @media (max-width: 768px) {
@@ -203,14 +489,71 @@ body {
         height: 70px;
     }
 
-    /* OCULTA o nome no cabeçalho em telas pequenas */
-    /* Removido para manter o nav-brand visível e dar um toque de branding */
+    /* MOBILE: Oculta menu horizontal e mostra hamburger */
+    .nav-menu {
+        /* Estilo padrão do menu mobile (escondido) */
+        display: flex;
+        position: absolute;
+        top: 70px;
+        left: -100%; 
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--background-light);
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        padding-bottom: 10px; 
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0; /* Mostra o menu quando ativo */
+    }
+    
+    .nav-menu a {
+        /* Estilo dos links no menu vertical */
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+        margin: 0;
+    }
 
-    /* OCULTA o botão de download FIXO (desktop) no mobile */
+    .nav-menu a:hover {
+        background-color: var(--background-dark);
+    }
+
+    /* MOBILE: Oculta o botão de download FIXO (desktop) */
     .download-cv-btn.download-desktop {
         display: none;
     }
     
+    /* MOBILE: Exibe o botão de download dentro do menu (CTA) */
+    .download-cv-btn.download-mobile {
+        display: block; 
+        background-color: var(--secondary-color); 
+        color: var(--text-light); 
+        
+        padding: 15px 20px; 
+        font-weight: 700;
+        margin: 10px 20px; 
+        border-radius: 5px; 
+        border-bottom: none; 
+        text-align: center;
+    }
+    
+    /* MOBILE: Mostra o ícone de toggle */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
     /* Ajustes no Timeline para mobile: Torna a timeline linear */
     .timeline::after {
         left: 18px;
