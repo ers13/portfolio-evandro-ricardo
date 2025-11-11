@@ -629,6 +629,14 @@ body {
     
     .projects-grid {
         grid-template-columns: 1fr; /* Projetos em coluna única */
+        gap: 20px; /* Reduz o gap no mobile, mas mantém espaço */
+    }
+    
+    /* MELHORIA VISUAL NA SEÇÃO PROJETOS (para smartphone) */
+    .project-card {
+        padding: 25px; /* Ajusta o padding */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada para parecer mais "block" */
+        border-left: 6px solid var(--primary-color); /* Borda mais grossa no mobile para destaque */
     }
 
     .education-grid {
