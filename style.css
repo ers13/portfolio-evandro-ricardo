@@ -18,7 +18,7 @@
 
 html {
     scroll-behavior: smooth;
-    /* Ajuste para o cabeçalho fixo */
+    /* Ajuste para o cabeçalho fixo (DESKTOP) */
     scroll-padding-top: 80px; 
 }
 
@@ -87,7 +87,7 @@ body {
 }
 
 
-/* 2. CABEÇALHO E NAVEGAÇÃO - REVERTIDO PARA RESPONSIVO (DESKTOP HORIZONTAL) */
+/* 2. CABEÇALHO E NAVEGAÇÃO - RESPONSIVO (DESKTOP HORIZONTAL) */
 .navbar {
     position: fixed;
     top: 0;
@@ -481,6 +481,7 @@ body {
 
 /* 8. RESPONSIVIDADE (MOBILE FIRST) */
 @media (max-width: 768px) {
+    /* CORREÇÃO 1: Ajusta o scroll-padding-top para mobile */
     html {
         scroll-padding-top: 70px;
     }
@@ -541,18 +542,18 @@ body {
         text-align: center;
     }
     
-    /* Alteração solicitada: Ícone maior (2.2rem) e sem borda/fundo */
+    /* CORREÇÃO 2: Ícone maior (2.5rem) e sem borda/fundo */
     .menu-toggle {
         display: block; 
-        font-size: 2.2rem; /* Ícone visivelmente maior */
+        font-size: 2.5rem; /* Ícone visivelmente maior */
         background: none; /* Remove fundo padrão do botão */
         border: none; /* Remove borda padrão do botão */
         color: var(--text-primary); /* Garante que o ícone tenha a cor correta */
         cursor: pointer;
-        padding: 5px;
+        padding: 0; /* Ajuste o padding para focar apenas no ícone */
     }
     
-    /* MOBILE: Redução de espaço entre navbar e conteúdo */
+    /* CORREÇÃO 3: Redução de espaço entre navbar e conteúdo */
     .hero {
         padding-top: 70px; 
     }
