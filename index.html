@@ -17,7 +17,7 @@
 <body>
 
     <a href="Evandro Ricardo-Curriculo Vitae.pdf" target="_blank" class="download-cv-btn download-desktop">
-        <i class="fas fa-file-download"></i> Download C.V (PDF)
+        <i class="fas fa-file-download"></i> Download Currículo (PDF)
     </a>
 
     <header class="navbar">
@@ -31,7 +31,7 @@
                 <a href="#contato">Contato</a>
                 
                 <a href="Evandro Ricardo-Curriculo Vitae.pdf" target="_blank" class="download-cv-btn download-mobile">
-                    <i class="fas fa-file-download"></i> Download C.V (PDF)
+                    <i class="fas fa-file-download"></i> Download Currículo (PDF)
                 </a>
             </nav>
             <button id="menu-toggle" class="menu-toggle">
@@ -144,17 +144,18 @@
                     <div class="education-block">
                         <h3>Formação Acadêmica</h3>
                         <ul>
-                            <li><strong>Análise e Desenvolvimento de Sistemas</strong> – FATEC de Praia Grande (Em curso)</li>
-                            <li><strong>Técnico em Informática</strong> – ETEC de Praia Grande (Concluído em 2014)</li>
+                            <li><strong>*Marketing Digital (EAD)</strong> – UNINTER - Pólo Cubatão (Em pausa)</li>
+                            <li><strong>*Análise e Desenvolvimento de Sistemas</strong> – FATEC de Praia Grande (Em pausa)</li>
+                            <li><strong>*Técnico em Informática</strong> – ETEC de Praia Grande (Concluído em 2014)</li>
                         </ul>
                     </div>
                     <div class="education-block">
                         <h3>Certificações e Cursos</h3>
                         <ul>
-                            <li>Cabeamento Estruturado em Redes – SENAI</li>
-                            <li>Desenvolvimento de Softwares – SENAI</li>
-                            <li>Eletrônica de Bancada e Manutenção de Notebooks</li>
-                            <li>Manutenção de Computadores – SENAC</li>
+                            <li>Cabeamento Estruturado em Redes  <strong>SENAI</strong></li>
+                            <li>Desenvolvimento de Softwares  <strong>SENAI</strong></li>
+                            <li>Eletrônica de Bancada e Manutenção de Notebooks  <strong>TECNOPONTA</strong></li>
+                            <li>Manutenção de Computadores  <strong>SENAC</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -196,7 +197,7 @@
         const scrollTopButton = document.getElementById('scroll-to-top');
         const scrollThreshold = 400; // Define quantos pixels para baixo antes de mostrar o botão
 
-        // 1. Lógica para mostrar/esconder o botão (NOVO)
+        // 1. Lógica para mostrar/esconder o botão
         window.addEventListener('scroll', () => {
             if (window.scrollY > scrollThreshold) {
                 scrollTopButton.classList.add('visible');
@@ -205,35 +206,25 @@
             }
         });
 
-        // 2. Rolagem suave e fechar menu (EXISTENTE)
+        // 2. Ativa/Desativa o menu ao clicar no ícone
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // 3. Rolagem suave e fechar menu após o clique em um link de seção
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                // A rolagem para o topo será tratada pelo evento específico do botão scrollTopButton
-                if (this.id !== 'scroll-to-top') {
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
                 
+                // Realiza a rolagem suave
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
                 // Fecha o menu no mobile após o clique
                 if (navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                 }
-            });
-        });
-        
-        // 3. Ativa/Desativa o menu ao clicar no ícone (EXISTENTE)
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // 4. Lógica de rolagem suave ao clicar no botão 'Voltar ao Topo' (NOVO)
-        // Isso garante que ele use a rolagem suave mesmo que tenha sido pego pelo seletor genérico acima.
-        scrollTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.querySelector(scrollTopButton.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
             });
         });
     </script>
