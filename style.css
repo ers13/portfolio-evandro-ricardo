@@ -49,8 +49,12 @@ body {
     font-weight: 700;
 }
 
-/* ESTILO PARA O BOTÃO DE DOWNLOAD FIXO (Desktop) */
-.download-cv-btn {
+/* ------------------------------------------- */
+/* ESTILO PARA O BOTÃO DE DOWNLOAD (GLOBAL/DESKTOP) */
+/* ------------------------------------------- */
+
+/* Estilo para o botão de download fixo no DESKTOP */
+.download-cv-btn.download-desktop {
     position: fixed;
     top: 100px;
     right: 20px;
@@ -64,9 +68,11 @@ body {
     z-index: 999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
+    /* Garante que seja ocultado no mobile */
+    display: block;
 }
 
-.download-cv-btn:hover {
+.download-cv-btn.download-desktop:hover {
     background-color: #1e7e34;
     transform: scale(1.05);
 }
@@ -74,6 +80,12 @@ body {
 .download-cv-btn i {
     margin-right: 8px;
 }
+
+/* Esconde o item do menu no desktop */
+.download-cv-btn.download-mobile {
+    display: none;
+}
+
 
 /* 2. CABEÇALHO E NAVEGAÇÃO */
 .navbar {
@@ -92,7 +104,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 70px; /* Reduzido para 70px para melhor visualização no mobile */
 }
 
 .nav-brand {
@@ -133,21 +145,19 @@ body {
     padding-top: 100px; /* Espaço para o navbar */
 }
 
-/* Garante que o conteúdo centralize corretamente */
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
 }
 
-/* ESTILO PARA A FOTO DE PERFIL: CORRIGE O SUMIÇO */
 .profile-pic {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 25px auto; /* Centraliza a imagem */
-    display: block; /* Garante que a imagem se comporte como bloco */
+    margin: 0 auto 25px auto;
+    display: block;
     border: 5px solid var(--primary-color);
     box-shadow: 0 0 0 5px var(--background-light);
 }
@@ -194,7 +204,6 @@ body {
 
 .skills-grid {
     display: grid;
-    /* Força no mínimo 2 colunas para desktop */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
 }
@@ -407,7 +416,9 @@ body {
     opacity: 0.5;
 }
 
+/* ------------------------------------------- */
 /* 8. RESPONSIVIDADE (MOBILE FIRST) */
+/* ------------------------------------------- */
 @media (max-width: 768px) {
     html {
         scroll-padding-top: 70px;
@@ -417,20 +428,31 @@ body {
         height: 70px;
     }
 
-    /* OCULTA o botão de download FIXO no mobile */
-    .download-cv-btn {
+    /* OCULTA o botão de download FIXO (desktop) no mobile */
+    .download-cv-btn.download-desktop {
         display: none;
     }
 
-    /* GERAL: Garante que os grids virem coluna única no tablet/mobile */
-    .skills-grid {
-        grid-template-columns: 1fr; 
+    /* MOSTRA o botão de download no MENU (mobile) */
+    .download-cv-btn.download-mobile {
+        /* Estilo para parecer um item de menu, mas em destaque */
+        display: block; 
+        background-color: var(--secondary-color);
+        color: var(--text-light);
+        padding: 15px 20px;
+        text-decoration: none;
+        font-weight: 700;
+        margin: 10px 20px;
+        border-radius: 5px;
     }
 
-    .education-grid {
-        grid-template-columns: 1fr;
+    /* Remove a borda inferior do item de download no mobile */
+    .nav-menu a:last-child {
+        border-bottom: none;
     }
 
+
+    /* Configuração do menu hambúrguer */
     .nav-menu {
         position: absolute;
         top: 70px;
@@ -441,6 +463,7 @@ body {
         text-align: center;
         transition: left 0.3s ease;
         box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        padding-bottom: 10px; /* Espaço extra no final do menu */
     }
 
     .nav-menu.active {
@@ -472,13 +495,13 @@ body {
 
     /* Ajustes no Timeline para mobile: Torna a timeline linear */
     .timeline::after {
-        left: 18px; /* Move a linha central para a esquerda */
+        left: 18px;
     }
 
     .timeline-item {
         width: 100%;
-        padding-left: 45px; /* Reduz o padding para a esquerda */
-        padding-right: 15px; 
+        padding-left: 45px;
+        padding-right: 15px;
     }
 
     .timeline-item:nth-child(odd),
@@ -488,11 +511,20 @@ body {
 
     .timeline-item:nth-child(odd)::after,
     .timeline-item:nth-child(even)::after {
-        left: 9px; /* Alinha o ponto à linha central */
+        left: 9px;
     }
     
     .timeline-content {
-        padding: 15px 20px; /* Conteúdo mais compacto */
+        padding: 15px 20px;
+    }
+
+    /* GERAL: Garante que os grids virem coluna única no tablet/mobile */
+    .skills-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
     }
 }
 
