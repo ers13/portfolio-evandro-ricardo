@@ -8,6 +8,11 @@
     --text-secondary: #555;
     --text-light: #ffffff;
     --border-color: #e0e0e0;
+
+    /* NOVO: Variáveis para os ícones de contato */
+    --color-email: #D93025; /* Vermelho do E-mail */
+    --color-whatsapp: #25D366; /* Verde do WhatsApp */
+    --color-linkedin: #0A66C2; /* Azul do LinkedIn */
 }
 
 * {
@@ -114,17 +119,16 @@ body {
     text-decoration: none;
 }
 
-/* DESKTOP: Menu Horizontal */
+/* DESKTOP: Menu Horizontal (COM DISTRIBUIÇÃO UNIFORME) */
 .nav-menu {
     display: flex;
-    /* NOVO: Ocupa todo o espaço restante na navbar */
+    /* ALTERADO: Ocupa todo o espaço restante na navbar */
     flex-grow: 1; 
-    /* NOVO: Distribui os itens uniformemente, deixando espaço nas pontas */
+    /* ALTERADO: Distribui os itens uniformemente, deixando espaço nas pontas */
     justify-content: space-around; 
     align-items: center;
-    /* NOVO: Adiciona um pequeno espaço entre o logo e o início do menu */
+    /* ALTERADO: Adiciona um pequeno espaço entre o logo e o início do menu */
     margin-left: 30px; 
-    /* Removido: gap: 25px; */
 }
 
 .nav-menu a {
@@ -419,7 +423,6 @@ body {
 .achievement-highlight {
     color: var(--secondary-color) !important;
     font-weight: bold;
-    /* Altera o marcador para ser mais chamativo */
 }
 
 .achievement-highlight::before {
@@ -476,7 +479,6 @@ body {
 
 .footer .section-title {
     color: var(--text-light);
-    /* Alinhado para rodapé */
     margin-bottom: 20px; 
 }
 
@@ -490,7 +492,7 @@ body {
     justify-content: center;
     gap: 30px;
     margin-bottom: 30px;
-    flex-wrap: wrap; /* Para garantir quebra de linha no mobile */
+    flex-wrap: wrap; 
 }
 
 .contact-link {
@@ -503,15 +505,38 @@ body {
     transition: background-color 0.3s;
 }
 
+/* Estilo geral para todos os ícones no rodapé */
 .contact-link i {
     margin-right: 10px;
-    color: var(--secondary-color); /* Ícone verde de destaque */
+    /* Remove a cor secundária padrão para permitir cores específicas */
+    color: inherit; 
+    transition: color 0.3s;
 }
 
 .contact-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--text-light); 
 }
+
+/* CORES ESPECÍFICAS POR ÍCONE USANDO SELETORES DE ATRIBUTO */
+
+/* Ícone de E-mail (envelope) */
+.contact-link[href^="mailto:"] i {
+    color: var(--color-email); /* Vermelho */
+}
+
+/* Ícone de WhatsApp (fa-whatsapp) */
+.contact-link[href*="wa.me"] i {
+    color: var(--color-whatsapp); /* Verde */
+}
+
+/* Ícone de LinkedIn (fa-linkedin) */
+.contact-link[href*="linkedin.com"] i {
+    color: var(--color-linkedin); /* Azul */
+}
+
+/* FIM - CORES ESPECÍFICAS */
+
 
 .contact-info {
     display: flex;
