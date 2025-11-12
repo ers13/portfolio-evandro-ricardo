@@ -572,6 +572,12 @@ body {
     html {
         scroll-padding-top: 70px;
     }
+
+    /* NOVO: Força a quebra de linha no título principal (h1) APENAS no mobile */
+    .hero-title .mobile-break {
+        display: block; /* Força 'da Silva' para a próxima linha */
+        white-space: nowrap; /* Garante que 'da Silva' não quebre */
+    }
     
     .navbar .container {
         height: 70px;
