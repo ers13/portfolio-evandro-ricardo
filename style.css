@@ -260,9 +260,11 @@ body {
     margin-bottom: 10px;
 }
 
-.skill-description {
+.skill-description { /* Agora se aplica a <ul> */
     color: var(--text-secondary);
     font-size: 0.95rem;
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding-left: 0; /* Remove o espaçamento padrão da lista */
 }
 
 
