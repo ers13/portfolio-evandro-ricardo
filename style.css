@@ -9,10 +9,10 @@
     --text-light: #ffffff;
     --border-color: #e0e0e0;
 
-    /* NOVO: Variáveis para os ícones de contato */
-    --color-email: #D93025; /* Vermelho do E-mail */
-    --color-whatsapp: #25D366; /* Verde do WhatsApp */
-    --color-linkedin: #0A66C2; /* Azul do LinkedIn */
+    /* Variáveis para os ícones de contato */
+    --color-email: #D93025; 
+    --color-whatsapp: #25D366; 
+    --color-linkedin: #0A66C2; 
 }
 
 * {
@@ -32,7 +32,7 @@ body {
     background-color: var(--background-light);
     color: var(--text-primary);
     line-height: 1.6;
-    /* CORREÇÃO CRUCIAL PARA OVERFLOW: Impede barra de rolagem horizontal no mobile e desktop */
+    /* CORREÇÃO CRUCIAL CONTRA FAIXA BRANCA: Impede barra de rolagem horizontal */
     overflow-x: hidden; 
     width: 100%; 
 }
@@ -88,7 +88,7 @@ body {
     margin-right: 8px;
 }
 
-/* Oculta o item do menu no desktop (porque o botão fixo já o substitui) */
+/* Oculta o item do menu no desktop */
 .download-cv-btn.download-mobile {
     display: none;
 }
@@ -125,11 +125,10 @@ body {
 .nav-menu {
     display: flex;
     flex-grow: 1; 
-    justify-content: center; /* CORREÇÃO CRÍTICA: Centraliza todos os itens */
+    justify-content: center; /* MANTIDO: Centraliza os itens como um bloco */
     align-items: center;
-    /* Remove o margin-left que impedia a centralização real */
-    margin-left: 0; 
-    gap: 25px; /* Adiciona um espaço fixo entre os links */
+    margin-left: 0; /* MANTIDO: Remove o margin-left para centralização real */
+    gap: 25px; 
 }
 
 .nav-menu a {
@@ -158,11 +157,10 @@ body {
     display: flex;
     align-items: center;
     text-align: center;
-    padding-top: 100px; /* Espaço para o navbar (DESKTOP) */
+    padding-top: 100px; 
 }
 
 .hero .container {
-    /* Garante que o conteúdo não toque as bordas no mobile */
     padding-top: 40px; 
     padding-bottom: 40px;
 }
@@ -261,18 +259,18 @@ body {
     margin-bottom: 10px;
 }
 
-.skill-description { /* Agora se aplica a <ul> */
+.skill-description { 
     color: var(--text-secondary);
     font-size: 0.95rem;
-    list-style-type: none; /* Remove os marcadores da lista */
-    padding-left: 0; /* Remove o espaçamento padrão da lista */
+    list-style-type: none; 
+    padding-left: 0; 
 }
 
 
-/* 4.5. SEÇÃO PROJETOS E OTIMIZAÇÃO (NOVO E CORRIGIDO) */
+/* 4.5. SEÇÃO PROJETOS E OTIMIZAÇÃO */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
     text-align: center;
 }
@@ -294,7 +292,7 @@ body {
 
 .project-icon {
     font-size: 2.5rem;
-    color: var(--secondary-color); /* Usando a cor verde para destaque */
+    color: var(--secondary-color); 
     margin-bottom: 15px;
     display: block;
 }
@@ -511,7 +509,6 @@ body {
 /* Estilo geral para todos os ícones no rodapé */
 .contact-link i {
     margin-right: 10px;
-    /* Remove a cor secundária padrão para permitir cores específicas */
     color: inherit; 
     transition: color 0.3s;
 }
@@ -521,24 +518,18 @@ body {
     color: var(--text-light); 
 }
 
-/* CORES ESPECÍFICAS POR ÍCONE USANDO SELETORES DE ATRIBUTO */
-
-/* Ícone de E-mail (envelope) */
+/* CORES ESPECÍFICAS POR ÍCONE */
 .contact-link[href^="mailto:"] i {
-    color: var(--color-email); /* Vermelho */
+    color: var(--color-email); 
 }
 
-/* Ícone de WhatsApp (fa-whatsapp) */
 .contact-link[href*="wa.me"] i {
-    color: var(--color-whatsapp); /* Verde */
+    color: var(--color-whatsapp); 
 }
 
-/* Ícone de LinkedIn (fa-linkedin) */
 .contact-link[href*="linkedin.com"] i {
-    color: var(--color-linkedin); /* Azul */
+    color: var(--color-linkedin); 
 }
-
-/* FIM - CORES ESPECÍFICAS */
 
 
 .contact-info {
@@ -571,15 +562,15 @@ body {
 
 /* 8. RESPONSIVIDADE (MOBILE FIRST) */
 @media (max-width: 768px) {
-    /* CORREÇÃO: Ajusta o scroll-padding-top e espaço da seção hero para mobile */
+    /* Ajusta o scroll-padding-top e espaço da seção hero para mobile */
     html {
         scroll-padding-top: 70px;
     }
 
-    /* NOVO: Força a quebra de linha no título principal (h1) APENAS no mobile */
+    /* Força a quebra de linha no título principal (h1) APENAS no mobile */
     .hero-title .mobile-break {
-        display: block; /* Força 'da Silva' para a próxima linha */
-        white-space: nowrap; /* Garante que 'da Silva' não quebre */
+        display: block; 
+        white-space: nowrap; 
     }
     
     .navbar .container {
@@ -588,7 +579,6 @@ body {
 
     /* MOBILE: Oculta menu horizontal e mostra hamburger */
     .nav-menu {
-        /* Estilo padrão do menu mobile (escondido) */
         display: flex;
         position: absolute;
         top: 70px;
@@ -596,29 +586,24 @@ body {
         width: 100%;
         flex-direction: column;
         background-color: var(--background-light);
-        /* Mantém a centralização */
         text-align: center; 
         transition: left 0.3s ease;
         box-shadow: 0 10px 10px rgba(0,0,0,0.05);
         padding-bottom: 10px; 
         z-index: 999;
-        /* Limpa o margin-left aplicado no desktop */
         margin-left: 0; 
-        /* Alinha os itens ao centro na visualização em coluna */
         align-items: center; 
     }
     
     .nav-menu.active {
-        left: 0; /* Mostra o menu quando ativo */
+        left: 0; 
     }
     
     .nav-menu a {
-        /* Estilo dos links no menu vertical */
         display: block;
         padding: 15px 20px;
         border-bottom: 1px solid var(--border-color);
         margin: 0;
-        /* Garante que o texto fique centralizado */
         width: 100%; 
     }
 
@@ -642,7 +627,7 @@ body {
         margin: 0; 
         border-bottom: 1px solid var(--border-color); 
         text-align: center;
-        box-shadow: none; /* Garante que não tenha sombra */
+        box-shadow: none; 
     }
     
     .download-cv-btn.download-mobile:hover {
@@ -653,15 +638,14 @@ body {
     /* Ícone maior (2.5rem) e sem borda/fundo */
     .menu-toggle {
         display: block; 
-        font-size: 2.5rem; /* Ícone visivelmente maior */
-        background: none; /* Remove fundo padrão do botão */
-        border: none; /* Remove borda padrão do botão */
-        color: var(--text-primary); /* Garante que o ícone tenha a cor correta */
+        font-size: 2.5rem; 
+        background: none; 
+        border: none; 
+        color: var(--text-primary); 
         cursor: pointer;
-        padding: 0; /* Ajuste o padding para focar apenas no ícone */
+        padding: 0; 
     }
     
-    /* Redução de espaço entre navbar e conteúdo (solicitado anteriormente) */
     .hero {
         padding-top: 70px; 
     }
@@ -674,21 +658,20 @@ body {
         font-size: 1.2rem;
     }
 
-    /* CORREÇÃO DE LAYOUT: Garante que os grids virem coluna única no mobile */
+    /* Garante que os grids virem coluna única no mobile */
     .skills-grid {
         grid-template-columns: 1fr; 
     }
     
     .projects-grid {
-        grid-template-columns: 1fr; /* Projetos em coluna única */
-        gap: 20px; /* Reduz o gap no mobile, mas mantém espaço */
+        grid-template-columns: 1fr; 
+        gap: 20px; 
     }
     
-    /* MELHORIA VISUAL NA SEÇÃO PROJETOS (para smartphone) */
     .project-card {
-        padding: 25px; /* Ajusta o padding */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada para parecer mais "block" */
-        border-left: 6px solid var(--primary-color); /* Borda mais grossa no mobile para destaque */
+        padding: 25px; 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+        border-left: 6px solid var(--primary-color); 
     }
 
     .education-grid {
@@ -750,7 +733,7 @@ body {
     }
     
     .contact-info span {
-        font-size: 0.9rem; /* Ajuste para telas menores */
+        font-size: 0.9rem; 
         padding: 7px 12px;
     }
 }
@@ -777,7 +760,7 @@ body {
     opacity: 0; /* Começa invisível */
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-    z-index: 1001; /* Garante que fique acima de outros elementos */
+    z-index: 1001; 
     transform: translateY(10px);
 }
 
