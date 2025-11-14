@@ -78,7 +78,7 @@
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section id="habilidades" class="section background-dark">
@@ -319,10 +319,9 @@
         const scrollTopButton = document.getElementById('scroll-to-top');
         const scrollThreshold = 400; 
 
-        // Lógica para mostrar/esconder o botão e rolar ao topo (CORREÇÃO)
+        // Lógica para mostrar/esconder o botão e rolar ao topo
         if (scrollTopButton) {
             window.addEventListener('scroll', () => {
-                // Adicionado '!' na lógica para garantir que a classe 'visible' seja adicionada
                 if (window.scrollY > scrollThreshold) {
                     scrollTopButton.classList.add('visible');
                 } else {
