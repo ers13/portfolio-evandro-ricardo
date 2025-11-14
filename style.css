@@ -104,8 +104,9 @@ body {
 }
 
 .navbar .container {
+    /* Altera o justify para o mobile (sem menu aberto) */
     display: flex;
-    justify-content: center; 
+    justify-content: space-between; /* Novo: Garante que os itens fiquem nas pontas */
     align-items: center;
     padding: 15px 20px;
 }
@@ -185,7 +186,8 @@ body {
     font-size: 1.5rem;
     color: var(--text-primary);
     cursor: pointer;
-    position: absolute;
+    /* Ajusta para ficar no canto direito quando visível */
+    position: absolute; 
     right: 20px; 
 }
 
@@ -609,7 +611,7 @@ body {
 }
 
 /* ------------------------------------------- */
-/* 9. BOTÃO FLUTUANTE VOLTAR AO TOPO */
+/* 9. BOTÃO FLUTUANTE VOLTAR AO TOPO (CORRIGIDO) */
 /* ------------------------------------------- */
 #scroll-to-top {
     position: fixed;
@@ -626,6 +628,7 @@ body {
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
+    /* Visibilidade inicial oculta para o JS controlar */
     opacity: 0;
     visibility: hidden; 
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
@@ -633,6 +636,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Classe controlada pelo JavaScript */
 #scroll-to-top.visible {
     opacity: 1 !important;
     visibility: visible !important;
@@ -654,6 +658,7 @@ body {
     }
     
     .nav-menu {
+        /* Desativa o espaçamento forçado do desktop */
         justify-content: space-around;
         max-width: none;
     }
@@ -683,28 +688,36 @@ body {
         font-size: 1.1rem;
     }
 
-    .navbar .container {
-        justify-content: flex-end; 
-        padding: 10px 15px;
-    }
-
     /* Oculta o botão de download flutuante do desktop no mobile */
     .download-desktop { 
         display: none !important; 
     }
     
+    .navbar .container {
+        /* Altera a centralização de volta para as pontas no mobile */
+        justify-content: space-between; 
+    }
+
+    .menu-toggle {
+        display: block; /* Torna o ícone de hambúrguer visível */
+    }
+
     .nav-menu {
         display: none; /* Escondido por padrão */
-        flex-direction: column; /* Coluna para links verticais */
+        flex-direction: column; /* Links verticais */
         justify-content: flex-start;
         position: absolute;
-        top: 60px; 
+        top: 60px; /* Abaixo da barra de navegação */
         left: 0;
-        width: 100%;
+        width: 100%; /* Largura total */
         background-color: var(--background-light);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
         z-index: 900;
+        /* Garante que o menu ocupe toda a tela na vertical para rolar */
+        height: auto; 
+        max-height: calc(100vh - 60px); 
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -713,11 +726,11 @@ body {
 
     .nav-menu a {
         padding: 15px 20px;
-        width: 100%;
+        width: 100%; /* Largura total para os links */
         text-align: center;
         border-bottom: 1px solid var(--border-color);
     }
-    
+
     .nav-menu a:hover {
         background-color: var(--background-dark);
     }
@@ -725,18 +738,14 @@ body {
     /* Estiliza o botão de download DENTRO do menu mobile */
     .download-mobile-menu-item {
         display: block; /* Visível no mobile menu */
-        width: 90%; /* Deixa uma pequena margem interna */
-        margin: 10px auto 10px; /* Centraliza e adiciona margem */
+        width: 90%; 
+        margin: 10px auto 10px; /* Centraliza */
         background-color: #dc3545; /* Cor de destaque */
         color: var(--text-light);
         padding: 12px 20px;
         border-radius: 5px;
         font-weight: 700;
-        border-bottom: none; /* Não tem a borda cinza padrão */
-    }
-
-    .menu-toggle {
-        display: block;
+        border-bottom: none; 
     }
 
     /* Garante 1 coluna no mobile para grids */
