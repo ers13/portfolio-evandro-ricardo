@@ -56,7 +56,7 @@ body {
 }
 
 /* ------------------------------------------- */
-/* ESTILO PARA O BOTÃO DE DOWNLOAD (GLOBAL/DESKTOP) - ESTILO NEUTRO APLICADO */
+/* ESTILO PARA O BOTÃO DE DOWNLOAD (GLOBAL/DESKTOP) - ESTILO NEUTRO */
 /* ------------------------------------------- */
 
 /* Estilo para o botão de download fixo no DESKTOP */
@@ -65,15 +65,15 @@ body {
     top: 100px;
     right: 20px;
     background-color: transparent; /* CORREÇÃO: Fundo neutro */
-    color: var(--primary-color); /* CORREÇÃO: Cor de link padrão */
+    color: var(--primary-color); 
     padding: 10px 18px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
     z-index: 999;
-    box-shadow: none; /* CORREÇÃO: Remove sombra */
-    border: 1px solid var(--primary-color); /* CORREÇÃO: Borda sutil */
+    box-shadow: none; 
+    border: 1px solid var(--primary-color); /* Borda sutil */
     transition: background-color 0.3s, transform 0.3s, color 0.3s;
     display: block; 
 }
@@ -216,12 +216,12 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 1.1rem;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s; /* EFEITO PRESERVADO */
 }
 
 .cta-button:hover {
     background-color: #0056b3;
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* EFEITO PRESERVADO */
 }
 
 
@@ -616,11 +616,11 @@ body {
         display: none;
     }
     
-    /* MOBILE: Exibe o botão de download dentro do menu (ESTILO NEUTRO APLICADO) */
+    /* MOBILE: Exibe o botão de download dentro do menu (ESTILO NEUTRO) */
     .download-cv-btn.download-mobile {
         display: block; 
-        background-color: transparent; /* CORREÇÃO: Fundo neutro */
-        color: var(--text-primary); /* CORREÇÃO: Cor de texto padrão */
+        background-color: transparent; 
+        color: var(--text-primary); 
         
         padding: 15px 20px; 
         font-weight: 600; 
@@ -759,7 +759,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     opacity: 0; 
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s; /* EFEITO PRESERVADO */
     z-index: 1001; 
     transform: translateY(10px);
 }
@@ -767,7 +767,7 @@ body {
 #scroll-to-top.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0); /* EFEITO PRESERVADO */
 }
 
 #scroll-to-top:hover {
