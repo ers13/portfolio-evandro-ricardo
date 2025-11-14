@@ -56,7 +56,7 @@ body {
 }
 
 /* ------------------------------------------- */
-/* ESTILO PARA O BOTÃO DE DOWNLOAD (GLOBAL/DESKTOP) - AGORA NEUTRO */
+/* ESTILO PARA O BOTÃO DE DOWNLOAD (GLOBAL/DESKTOP) - ESTILO NEUTRO APLICADO */
 /* ------------------------------------------- */
 
 /* Estilo para o botão de download fixo no DESKTOP */
@@ -125,9 +125,9 @@ body {
 .nav-menu {
     display: flex;
     flex-grow: 1; 
-    justify-content: center; /* MANTIDO: Centraliza os itens como um bloco */
+    justify-content: center; /* CORREÇÃO: Centraliza os itens como um bloco */
     align-items: center;
-    margin-left: 0; /* MANTIDO: Remove o margin-left para centralização real */
+    margin-left: 0; /* CORREÇÃO: Remove o margin-left para centralização real */
     gap: 25px; 
 }
 
@@ -239,11 +239,11 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border-top: 4px solid var(--primary-color);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s; /* EFEITO PRESERVADO */
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* EFEITO PRESERVADO */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -281,12 +281,12 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border-left: 4px solid var(--primary-color);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s; /* EFEITO PRESERVADO */
     text-align: left;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* EFEITO PRESERVADO */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -616,7 +616,7 @@ body {
         display: none;
     }
     
-    /* MOBILE: Exibe o botão de download dentro do menu (NEUTRO) */
+    /* MOBILE: Exibe o botão de download dentro do menu (ESTILO NEUTRO APLICADO) */
     .download-cv-btn.download-mobile {
         display: block; 
         background-color: transparent; /* CORREÇÃO: Fundo neutro */
@@ -757,7 +757,7 @@ body {
     text-decoration: none;
     font-size: 1.2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0; /* Começa invisível */
+    opacity: 0; 
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
     z-index: 1001; 
