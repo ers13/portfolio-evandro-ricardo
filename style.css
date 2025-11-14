@@ -111,11 +111,12 @@ body {
     position: relative; /* ANCORA para o botão de menu absoluto */
 }
 
-/* Distribuição igual dos itens do menu em TODA a extensão (DESKTOP) */
+/* Distribuição dos itens do menu no CENTRO (DESKTOP) */
 .nav-menu {
     display: flex;
     flex-direction: row; 
-    justify-content: space-around; 
+    justify-content: center; /* <<< MUDANÇA CRÍTICA: Centraliza itens desktop */
+    gap: 30px; /* Adiciona espaçamento entre os itens */
     flex-grow: 1; 
     max-width: 100%; 
     align-items: center;
@@ -126,7 +127,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s, border-bottom 0.3s;
-    padding: 5px 10px; 
+    padding: 5px 0; /* Ajuste para não ter padding horizontal desnecessário com o gap */
     flex-basis: auto; 
 }
 
@@ -135,24 +136,11 @@ body {
     border-bottom: 2px solid var(--primary-color);
 }
 
-/* Botão CTA na Navbar */
-.cta-nav-btn {
-    background-color: var(--secondary-color);
-    color: var(--text-primary) !important;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: 700;
-    border-bottom: none !important;
-    transition: background-color 0.3s;
-}
+/* Botão CTA na Navbar - REMOVIDO: Contato agora é um link normal */
+/* .cta-nav-btn, .cta-nav-btn:hover: Removidos/Ignorados */
 
-.cta-nav-btn:hover {
-    background-color: #ffb300; 
-    color: var(--text-primary) !important;
-}
-
-/* Botão de Download CV (flutuante desktop) */
-.download-cv-btn.download-desktop {
+/* Link de Download (flutuante desktop - AGORA NEUTRO) */
+.download-desktop-link {
     position: fixed;
     top: 90px; 
     right: 20px; 
@@ -161,20 +149,22 @@ body {
     font-size: 0.9rem;
     display: inline-block;
     padding: 10px 15px;
-    background-color: #dc3545; /* Vermelho/Destaque */
-    color: var(--text-light);
+    background-color: transparent; /* Neutro */
+    color: var(--primary-color); /* Cor principal do link */
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+    box-shadow: none;
+    border: 1px solid var(--border-color); /* Borda sutil */
+    transition: background-color 0.3s, color 0.3s;
 }
-.download-cv-btn.download-desktop:hover {
-    background-color: #c82333;
+.download-desktop-link:hover {
+    background-color: var(--background-dark); /* Fundo sutil no hover */
+    color: var(--primary-color);
 }
 
-/* Oculta o item de download do menu no desktop */
-.download-mobile-menu-item { 
+/* Oculta o link de download mobile no desktop */
+.download-mobile-link { 
     display: none; 
 }
 
@@ -195,6 +185,7 @@ body {
     top: 50%; 
     transform: translateY(-50%); 
 }
+
 
 /* ------------------------------------------- */
 /* 3. SEÇÃO HERO / SOBRE MIM */
@@ -650,7 +641,7 @@ body {
 
 
 /* ------------------------------------------- */
-/* 10. RESPONSIVIDADE (Mobile) - CORREÇÃO CRÍTICA DO MENU */
+/* 10. RESPONSIVIDADE (Mobile) - CORREÇÕES FINAIS */
 /* ------------------------------------------- */
 
 /* Para tablets e telas menores que 992px */
@@ -659,9 +650,11 @@ body {
         padding: 0 15px;
     }
     
+    /* Mantém a centralização dos itens de menu, mas adiciona flex-wrap se necessário */
     .nav-menu {
-        justify-content: space-around;
+        justify-content: center;
         max-width: none;
+        flex-wrap: wrap; 
     }
 
     .education-grid {
@@ -684,31 +677,25 @@ body {
         font-size: 2.5rem;
     }
 
-    /* Oculta o botão de download flutuante do desktop no mobile */
-    .download-desktop { 
+    /* Oculta o link de download flutuante do desktop no mobile */
+    .download-desktop-link { 
         display: none !important; 
     }
     
     .navbar .container {
-        /* Garante espaçamento suficiente no header */
         min-height: 60px;
         padding: 10px 15px;
-        /* IMPORTANTE: Remove justify-content para que a navegação
-           que está em display: none, não force o menu toggle para a direita
-           quando o container é flex. */
+        /* Alinha a barra de navegação para a direita, deixando espaço para o toggle */
         justify-content: flex-end; 
     }
 
-    /* FIX CRÍTICO: Ativa o botão e aplica a estética, MANTENDO o posicionamento absoluto definido fora da media query. */
+    /* FIX CRÍTICO: Ativa o botão e garante a posição */
     .menu-toggle {
         display: block; 
         font-size: 1.7rem; 
         color: var(--primary-color);
-        /* Remove position: static; para que ele herde o absolute e right: 20px */
         position: absolute; 
-        padding: 5px; /* Ajuste no padding para a área de clique */
-        right: 15px; /* Ajusta a distância da borda para telas pequenas */
-        /* top: 50% e transform: translateY(-50%) já estão no estilo base, garantindo centralização vertical. */
+        right: 15px; 
     }
 
     /* Menu Container (Visão Aberta) Aprimorada */
@@ -732,11 +719,11 @@ body {
         display: flex; 
     }
 
-    /* Links do Menu Aprimorados */
+    /* Links do Menu Aprimorados (Incluindo Contato, que herdará isso) */
     .nav-menu a {
         padding: 18px 25px; 
         width: 100%; 
-        text-align: left; /* Alinhado à esquerda para maior profissionalismo */
+        text-align: center; /* <<< MUDANÇA CRÍTICA: Centraliza itens mobile */
         border-bottom: 1px solid var(--border-color);
         font-size: 1.1rem; 
         color: var(--text-primary);
@@ -749,31 +736,25 @@ body {
         color: var(--primary-color);
     }
     
-    /* Botão CTA Contato dentro do Menu Mobile (ajuste visual) */
-    .cta-nav-btn {
-        margin: 10px 25px 0 25px;
-        width: calc(100% - 50px);
-        border-radius: 8px;
-        padding: 12px 20px;
-        font-size: 1.1rem;
-        text-align: center;
+    /* Link de Download DENTRO do Menu Mobile (NEUTRO) */
+    .download-mobile-link {
+        display: block; 
+        width: 100%; 
+        margin: 0; 
+        background-color: var(--background-light); 
+        color: var(--text-primary); 
+        padding: 18px 25px; 
+        border-radius: 0;
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-color); 
+        box-shadow: none; 
+        text-align: center; /* CENTRALIZAÇÃO DO TEXTO */
+    }
+    .download-mobile-link:hover {
+        background-color: var(--background-dark);
+        color: var(--primary-color);
     }
 
-    /* Botão de Download DENTRO do Menu Mobile Aprimorado */
-    .download-mobile-menu-item {
-        display: block; 
-        width: calc(100% - 50px); 
-        margin: 10px 25px 20px 25px; 
-        background-color: #dc3545; 
-        color: var(--text-light);
-        padding: 15px 25px; 
-        border-radius: 8px;
-        font-weight: 700;
-        border-bottom: none; 
-        box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4); 
-        text-align: center;
-    }
-    
     /* Garante 1 coluna no mobile para grids */
     .skills-grid, .projects-grid, .education-grid {
         grid-template-columns: 1fr;
