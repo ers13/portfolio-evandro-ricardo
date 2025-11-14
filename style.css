@@ -108,6 +108,7 @@ body {
     justify-content: space-between; 
     align-items: center;
     padding: 15px 20px;
+    position: relative; /* ANCORA para o botão de menu absoluto */
 }
 
 /* Distribuição igual dos itens do menu em TODA a extensão (DESKTOP) */
@@ -185,10 +186,15 @@ body {
     font-size: 1.5rem;
     color: var(--text-primary);
     cursor: pointer;
+    z-index: 1010;
+    transition: color 0.3s, transform 0.3s;
+
+    /* Posicionamento ABSOLUTO e CENTRALIZADO (Fixa na direita) */
     position: absolute; 
     right: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
 }
-
 
 /* ------------------------------------------- */
 /* 3. SEÇÃO HERO / SOBRE MIM */
@@ -644,7 +650,7 @@ body {
 
 
 /* ------------------------------------------- */
-/* 10. RESPONSIVIDADE (Mobile) - CORREÇÃO VISUAL APRIMORADA */
+/* 10. RESPONSIVIDADE (Mobile) - CORREÇÃO CRÍTICA DO MENU */
 /* ------------------------------------------- */
 
 /* Para tablets e telas menores que 992px */
@@ -687,20 +693,25 @@ body {
         /* Garante espaçamento suficiente no header */
         min-height: 60px;
         padding: 10px 15px;
+        /* IMPORTANTE: Remove justify-content para que a navegação
+           que está em display: none, não force o menu toggle para a direita
+           quando o container é flex. */
+        justify-content: flex-end; 
     }
 
-    /* Botão Hambúrguer Aprimorado */
+    /* FIX CRÍTICO: Ativa o botão e aplica a estética, MANTENDO o posicionamento absoluto definido fora da media query. */
     .menu-toggle {
         display: block; 
-        font-size: 1.7rem; /* Ícone um pouco maior */
+        font-size: 1.7rem; 
         color: var(--primary-color);
-        position: static; /* Volta para o fluxo normal dentro do container */
-        padding: 5px 10px;
-        z-index: 1010;
-        transition: color 0.3s;
+        /* Remove position: static; para que ele herde o absolute e right: 20px */
+        position: absolute; 
+        padding: 5px; /* Ajuste no padding para a área de clique */
+        right: 15px; /* Ajusta a distância da borda para telas pequenas */
+        /* top: 50% e transform: translateY(-50%) já estão no estilo base, garantindo centralização vertical. */
     }
 
-    /* Menu Container (Visão Aberta) Aprimorado */
+    /* Menu Container (Visão Aberta) Aprimorada */
     .nav-menu {
         display: none; 
         flex-direction: column; 
@@ -710,7 +721,7 @@ body {
         left: 0;
         width: 100%; 
         background-color: var(--background-light);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra mais proeminente */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
         padding: 10px 0;
         z-index: 900;
         max-height: calc(100vh - 60px); 
@@ -723,11 +734,11 @@ body {
 
     /* Links do Menu Aprimorados */
     .nav-menu a {
-        padding: 18px 25px; /* Aumento vertical para melhor toque */
+        padding: 18px 25px; 
         width: 100%; 
-        text-align: center;
+        text-align: left; /* Alinhado à esquerda para maior profissionalismo */
         border-bottom: 1px solid var(--border-color);
-        font-size: 1.1rem; /* Texto maior */
+        font-size: 1.1rem; 
         color: var(--text-primary);
         transition: background-color 0.2s, color 0.2s;
     }
@@ -740,25 +751,26 @@ body {
     
     /* Botão CTA Contato dentro do Menu Mobile (ajuste visual) */
     .cta-nav-btn {
-        margin: 10px auto;
-        width: 90%;
+        margin: 10px 25px 0 25px;
+        width: calc(100% - 50px);
         border-radius: 8px;
         padding: 12px 20px;
         font-size: 1.1rem;
+        text-align: center;
     }
 
     /* Botão de Download DENTRO do Menu Mobile Aprimorado */
     .download-mobile-menu-item {
         display: block; 
-        width: 90%; 
-        margin: 10px auto 20px; /* Mais margem na parte inferior */
+        width: calc(100% - 50px); 
+        margin: 10px 25px 20px 25px; 
         background-color: #dc3545; 
         color: var(--text-light);
-        padding: 15px 25px; /* Mais padding */
+        padding: 15px 25px; 
         border-radius: 8px;
         font-weight: 700;
         border-bottom: none; 
-        box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4); /* Sombra mais forte */
+        box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4); 
         text-align: center;
     }
     
