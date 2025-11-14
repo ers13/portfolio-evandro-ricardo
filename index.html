@@ -24,7 +24,7 @@
 
     <header class="navbar">
         <div class="container">
-            
+            <a href="#sobre" class="nav-brand"></a> 
             <nav class="nav-menu" id="nav-menu">
                 <a href="#sobre">Sobre</a>
                 <a href="#habilidades">Habilidades</a>
@@ -319,7 +319,7 @@
         const scrollTopButton = document.getElementById('scroll-to-top');
         const scrollThreshold = 400; 
 
-        // Lógica para mostrar/esconder o botão e rolar ao topo
+        // 1. Lógica para mostrar/esconder o botão
         if (scrollTopButton) {
             window.addEventListener('scroll', () => {
                 if (window.scrollY > scrollThreshold) {
@@ -339,14 +339,14 @@
         }
 
 
-        // Ativa/Desativa o menu ao clicar no ícone (Mobile)
+        // 2. Ativa/Desativa o menu ao clicar no ícone (Mobile)
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             const isExpanded = navMenu.classList.contains('active');
             menuToggle.setAttribute('aria-expanded', isExpanded);
         });
         
-        // Rolagem suave e fechar menu após o clique em um link de seção
+        // 3. Rolagem suave e fechar menu após o clique em um link de seção
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
