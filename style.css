@@ -110,7 +110,7 @@ body {
     padding: 15px 20px;
 }
 
-/* Distribuição igual dos itens do menu em TODA a extensão */
+/* Distribuição igual dos itens do menu em TODA a extensão (DESKTOP) */
 .nav-menu {
     display: flex;
     flex-direction: row; 
@@ -150,17 +150,17 @@ body {
     color: var(--text-primary) !important;
 }
 
-/* Botão de Download CV (flutuante desktop) - POSIÇÃO CORRIGIDA */
+/* Botão de Download CV (flutuante desktop) */
 .download-cv-btn.download-desktop {
     position: fixed;
-    top: 90px; /* Corrigido para baixo para evitar sobreposição */
+    top: 90px; 
     right: 20px; 
     left: auto; 
     z-index: 1010;
     font-size: 0.9rem;
     display: inline-block;
     padding: 10px 15px;
-    background-color: #0056B3; /* Azul/Destaque */
+    background-color: #dc3545; /* Vermelho/Destaque */
     color: var(--text-light);
     text-decoration: none;
     border-radius: 5px;
@@ -171,7 +171,11 @@ body {
 .download-cv-btn.download-desktop:hover {
     background-color: #c82333;
 }
-.download-mobile { display: none; }
+
+/* Oculta o item de download do menu no desktop */
+.download-mobile-menu-item { 
+    display: none; 
+}
 
 /* Botão mobile toggle - Oculto por padrão (desktop) */
 .menu-toggle {
@@ -218,7 +222,7 @@ body {
     margin: 0 auto;
     text-align: left;
     color: var(--text-secondary);
-    margin-bottom: 30px; /* Adiciona espaço antes dos ícones */
+    margin-bottom: 30px; 
 }
 
 .hero-summary p {
@@ -237,7 +241,7 @@ body {
     margin-top: 25px !important;
 }
 
-/* Estilização dos Links de Contato no Hero (NOVOS) */
+/* Estilização dos Links de Contato no Hero */
 .hero-contact-links {
     display: flex;
     justify-content: center;
@@ -265,13 +269,13 @@ body {
 
 /* Cores específicas dos ícones (Reutilizando as classes do footer) */
 .contact-icon.email-link {
-    background-color: #D93025; /* Vermelho (Gmail/Outlook-like) */
+    background-color: #D93025; 
 }
 .contact-icon.whatsapp-link {
-    background-color: #25D366; /* Verde do WhatsApp */
+    background-color: #25D366; 
 }
 .contact-icon.linkedin-link {
-    background-color: #0A66C2; /* Azul do LinkedIn */
+    background-color: #0A66C2; 
 }
 
 
@@ -386,7 +390,7 @@ body {
     padding-top: 10px; 
 }
 
-/* Espaçamento entre os itens da experiência - CORRIGIDO */
+/* Espaçamento entre os itens da experiência */
 .timeline-item:not(:last-child) {
     margin-bottom: 40px; 
 }
@@ -521,14 +525,14 @@ body {
 /* 8. RODAPÉ / CONTATO (Visual Simplificado com Cores Distintas) */
 /* ------------------------------------------- */
 .footer {
-    background-color: var(--primary-color); /* Fundo Azul Primário */
+    background-color: var(--primary-color); 
     color: var(--text-light);
     padding: 60px 0 30px;
     text-align: center;
 }
 
 .footer .section-title {
-    color: var(--text-light); /* Título em branco */
+    color: var(--text-light); 
     font-family: 'Poppins', sans-serif; 
 }
 
@@ -550,7 +554,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* Estilo Básico para Links de Contato */
+/* Estilo Básico para Links de Contato no Footer */
 .contact-link {
     text-decoration: none;
     padding: 12px 20px;
@@ -571,15 +575,15 @@ body {
 
 /* Ícones de Contato com Cores Distintas (Requisitado) */
 .contact-link.email-link {
-    background-color: #D93025; /* Vermelho (Gmail/Outlook-like) */
+    background-color: #D93025; 
     color: var(--text-light);
 }
 .contact-link.whatsapp-link {
-    background-color: #25D366; /* Verde do WhatsApp */
+    background-color: #25D366; 
     color: var(--text-light);
 }
 .contact-link.linkedin-link {
-    background-color: #0A66C2; /* Azul do LinkedIn */
+    background-color: #0A66C2; 
     color: var(--text-light);
 }
 
@@ -640,7 +644,7 @@ body {
 
 
 /* ------------------------------------------- */
-/* 10. RESPONSIVIDADE (Mobile) - Ajustada para consistência */
+/* 10. RESPONSIVIDADE (Mobile) - CORREÇÃO MENU */
 /* ------------------------------------------- */
 
 /* Para tablets e telas menores que 992px */
@@ -655,7 +659,6 @@ body {
     }
 
     .education-grid {
-        /* Muda para uma coluna em tablets */
         grid-template-columns: 1fr;
     }
 
@@ -685,25 +688,14 @@ body {
         padding: 10px 15px;
     }
 
-    .download-desktop { display: none !important; }
-
-    .download-mobile { 
-        display: inline-block !important; 
-        width: 100%; 
-        font-size: 1rem;
-        margin-top: 30px;
-        background-color: #dc3545;
-        color: var(--text-light);
-        padding: 12px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 700;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Oculta o botão de download flutuante do desktop no mobile */
+    .download-desktop { 
+        display: none !important; 
     }
     
     .nav-menu {
-        display: none; 
-        flex-direction: column;
+        display: none; /* Escondido por padrão */
+        flex-direction: column; /* Coluna para links verticais */
         justify-content: flex-start;
         position: absolute;
         top: 60px; 
@@ -716,7 +708,7 @@ body {
     }
 
     .nav-menu.active {
-        display: flex; 
+        display: flex; /* Exibe o menu quando ativo */
     }
 
     .nav-menu a {
@@ -730,12 +722,25 @@ body {
         background-color: var(--background-dark);
     }
     
+    /* Estiliza o botão de download DENTRO do menu mobile */
+    .download-mobile-menu-item {
+        display: block; /* Visível no mobile menu */
+        width: 90%; /* Deixa uma pequena margem interna */
+        margin: 10px auto 10px; /* Centraliza e adiciona margem */
+        background-color: #dc3545; /* Cor de destaque */
+        color: var(--text-light);
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-weight: 700;
+        border-bottom: none; /* Não tem a borda cinza padrão */
+    }
+
     .menu-toggle {
         display: block;
     }
 
-    /* Garante 1 coluna no mobile */
-    .skills-grid, .projects-grid {
+    /* Garante 1 coluna no mobile para grids */
+    .skills-grid, .projects-grid, .education-grid {
         grid-template-columns: 1fr;
     }
 
@@ -752,7 +757,6 @@ body {
         left: 10px;
     }
     
-    /* Centraliza os ícones de contato no hero em telas menores */
     .hero-contact-links {
         gap: 15px;
     }
