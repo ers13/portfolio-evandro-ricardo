@@ -1,15 +1,18 @@
 /* 1. VARIÁVEIS E CONFIGURAÇÕES GLOBAIS */
 :root {
-    /* PALETA DE CORES: Azul e Amarelo para Profissionalismo */
-    --primary-color: #0056b3; /* Azul escuro e moderno */
-    --secondary-color: #ffc107; /* Amarelo/Laranja para destaque e CTAs */
+    --primary-color: #007bff; /* Azul vibrante */
+    --secondary-color: #28a745; /* Verde para destaque */
     --background-light: #ffffff;
-    --background-dark: #f0f3f6; /* Cinza suave */
-    --text-primary: #212529; /* Preto suave */
+    --background-dark: #f8f9fa;
+    --text-primary: #333;
     --text-secondary: #555;
     --text-light: #ffffff;
     --border-color: #e0e0e0;
-    --shadow-subtle: 0 8px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
+
+    /* NOVO: Variáveis para os ícones de contato */
+    --color-email: #D93025; /* Vermelho do E-mail */
+    --color-whatsapp: #25D366; /* Verde do WhatsApp */
+    --color-linkedin: #0A66C2; /* Azul do LinkedIn */
 }
 
 * {
@@ -25,204 +28,189 @@ html {
 }
 
 body {
-    /* NOVA FONTE: Inter para corpo */
     font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
     background-color: var(--background-light);
     color: var(--text-primary);
     line-height: 1.6;
+    /* CORREÇÃO DA FAIXA BRANCA: Impede barra de rolagem horizontal */
+    overflow-x: hidden; 
+    width: 100%; 
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .section {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
-.background-dark {
-    background-color: var(--background-dark);
-}
-
-.section-title, .hero-title {
-    /* NOVA FONTE: Poppins para Títulos */
-    font-family: 'Poppins', sans-serif; 
-    font-size: 2.5rem;
-    font-weight: 700;
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
     color: var(--primary-color);
     margin-bottom: 50px;
-    text-align: center;
-    position: relative;
+    font-weight: 700;
 }
 
-.hero-title {
-     font-size: 3.5rem;
-}
+/* ------------------------------------------- */
+/* ESTILO PARA O BOTÃO DE DOWNLOAD (GLOBAL/DESKTOP) */
+/* ------------------------------------------- */
 
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-/* Botões CTA */
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
+/* Estilo para o botão de download fixo no DESKTOP */
+.download-cv-btn.download-desktop {
+    position: fixed;
+    top: 100px;
+    right: 20px;
     background-color: var(--primary-color);
     color: var(--text-light);
+    padding: 10px 18px;
+    border-radius: 5px;
     text-decoration: none;
-    border-radius: 8px; 
     font-weight: 600;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    margin-top: 30px;
+    font-size: 0.9rem;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border: none;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    display: block; 
 }
 
-.cta-button:hover {
-    background-color: #004080; 
-    transform: translateY(-2px);
+.download-cv-btn.download-desktop:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); /* EFEITO PRESERVADO */
 }
 
-/* ------------------------------------------- */
-/* 2. NAVBAR E CABEÇALHO */
-/* ------------------------------------------- */
+.download-cv-btn i {
+    margin-right: 8px;
+}
+
+/* Oculta o item do menu no desktop */
+.download-cv-btn.download-mobile {
+    display: none;
+}
+
+
+/* 2. CABEÇALHO E NAVEGAÇÃO - RESPONSIVO (DESKTOP HORIZONTAL) */
 .navbar {
-    background-color: var(--background-light);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); 
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    transition: background-color 0.3s;
 }
 
 .navbar .container {
     display: flex;
-    justify-content: center; 
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    height: 70px; 
 }
 
-/* Distribuição igual dos itens do menu em TODA a extensão */
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* DESKTOP: Menu Horizontal (Alinhamento original) */
 .nav-menu {
     display: flex;
-    flex-direction: row; 
-    justify-content: space-around; 
-    flex-grow: 1; 
-    max-width: 100%; 
     align-items: center;
+    gap: 25px; 
 }
 
 .nav-menu a {
-    color: var(--text-primary);
+    color: var(--text-secondary);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s, border-bottom 0.3s;
-    padding: 5px 10px; 
-    flex-basis: auto; 
+    transition: color 0.3s;
+    padding: 0;
+    border-bottom: none;
 }
 
 .nav-menu a:hover {
     color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
 }
 
-/* Botão CTA na Navbar */
+/* DESKTOP: Botão Hamburger escondido */
+.menu-toggle {
+    display: none; 
+}
+
+/* Efeito de botão para Contato na Nav */
 .cta-nav-btn {
     background-color: var(--secondary-color);
-    color: var(--text-primary) !important;
+    color: var(--text-light) !important;
     padding: 8px 15px;
     border-radius: 5px;
     font-weight: 700;
-    border-bottom: none !important;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .cta-nav-btn:hover {
-    background-color: #ffb300; 
-    color: var(--text-primary) !important;
-}
-
-/* Botão de Download CV (flutuante desktop) - POSIÇÃO CORRIGIDA */
-.download-cv-btn.download-desktop {
-    position: fixed;
-    top: 90px; /* Corrigido para baixo para evitar sobreposição */
-    right: 20px; 
-    left: auto; 
-    z-index: 1010;
-    font-size: 0.9rem;
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #0056B3; /* Azul/Destaque */
-    color: var(--text-light);
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-.download-cv-btn.download-desktop:hover {
-    background-color: #c82333;
-}
-.download-mobile { display: none; }
-
-/* Botão mobile toggle - Oculto por padrão (desktop) */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    cursor: pointer;
-    position: absolute;
-    right: 20px; 
+    background-color: #1e7e34;
+    transform: translateY(-2px);
 }
 
 
-/* ------------------------------------------- */
-/* 3. SEÇÃO HERO / SOBRE MIM */
-/* ------------------------------------------- */
+/* 3. SEÇÃO HERO (SOBRE) */
 .hero {
-    background: linear-gradient(135deg, var(--background-dark), var(--background-light));
+    background-color: var(--background-dark);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     text-align: center;
-    padding-top: 150px; 
-    padding-bottom: 80px;
+    padding-top: 100px; 
+}
+
+.hero .container {
+    padding-top: 40px; 
+    padding-bottom: 40px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .profile-pic {
     width: 180px;
     height: 180px;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
     border: 5px solid var(--background-light);
-    box-shadow: var(--shadow-subtle);
-    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 1.3rem;
     color: var(--text-secondary);
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .hero-summary {
-    max-width: 800px;
-    margin: 0 auto;
     text-align: left;
-    color: var(--text-secondary);
-    margin-bottom: 30px; /* Adiciona espaço antes dos ícones */
+    margin-bottom: 30px;
 }
 
 .hero-summary p {
     margin-bottom: 15px;
+    color: var(--text-secondary);
 }
 
 .hero-summary strong {
@@ -233,11 +221,10 @@ body {
 .key-competencies {
     border-left: 4px solid var(--secondary-color);
     padding-left: 15px;
+    margin-top: 20px;
     font-style: italic;
-    margin-top: 25px !important;
 }
 
-/* Estilização dos Links de Contato no Hero (NOVOS) */
 .hero-contact-links {
     display: flex;
     justify-content: center;
@@ -249,51 +236,39 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--text-light);
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .contact-icon:hover {
     transform: scale(1.1);
 }
 
-/* Cores específicas dos ícones (Reutilizando as classes do footer) */
-.contact-icon.email-link {
-    background-color: #D93025; /* Vermelho (Gmail/Outlook-like) */
-}
-.contact-icon.whatsapp-link {
-    background-color: #25D366; /* Verde do WhatsApp */
-}
-.contact-icon.linkedin-link {
-    background-color: #0A66C2; /* Azul do LinkedIn */
-}
+.contact-icon.email-link { background-color: var(--color-email); }
+.contact-icon.whatsapp-link { background-color: var(--color-whatsapp); }
+.contact-icon.linkedin-link { background-color: var(--color-linkedin); }
 
 
-/* ------------------------------------------- */
 /* 4. SEÇÃO HABILIDADES */
-/* ------------------------------------------- */
 .skills-grid {
-    /* Garante que o grid use 3 colunas em telas maiores para melhor diagramação */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    text-align: left;
-    /* Ajuste de diagramação */
-    padding-top: 10px; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding-top: 20px;
 }
 
 .skill-card {
     background-color: var(--background-light);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-subtle);
-    border-bottom: 4px solid var(--primary-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-color);
     transition: transform 0.3s;
 }
 
@@ -308,7 +283,7 @@ body {
 }
 
 .skill-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--primary-color);
     margin-bottom: 10px;
 }
@@ -320,7 +295,6 @@ body {
 
 .skill-description li {
     margin-bottom: 5px;
-    font-size: 0.95rem;
     color: var(--text-secondary);
 }
 .skill-description li::before {
@@ -332,30 +306,26 @@ body {
     margin-left: -1em;
 }
 
-/* ------------------------------------------- */
 /* 5. SEÇÃO PROJETOS */
-/* ------------------------------------------- */
 .projects-grid {
-    /* Garante alinhamento consistente */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    padding-top: 10px; 
+    padding-top: 20px;
 }
 
 .project-card {
     background-color: var(--background-light);
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-subtle);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid var(--secondary-color);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-bottom: 4px solid var(--secondary-color);
+    transition: transform 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
 .project-icon {
@@ -365,7 +335,7 @@ body {
 }
 
 .project-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--text-primary);
     margin-bottom: 10px;
 }
@@ -374,28 +344,20 @@ body {
     color: var(--text-secondary);
 }
 
-
-/* ------------------------------------------- */
 /* 6. SEÇÃO EXPERIÊNCIA (Timeline) */
-/* ------------------------------------------- */
 .timeline {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
     padding-left: 30px;
-    padding-top: 10px; 
-}
-
-/* Espaçamento entre os itens da experiência - CORRIGIDO */
-.timeline-item:not(:last-child) {
-    margin-bottom: 40px; 
+    padding-top: 20px; 
 }
 
 .timeline::before {
     content: '';
     position: absolute;
     width: 4px;
-    background-color: var(--primary-color);
+    background-color: var(--border-color);
     top: 0;
     bottom: 0;
     left: 10px;
@@ -405,18 +367,18 @@ body {
 .timeline-item {
     position: relative;
     padding-left: 40px;
-    margin-bottom: 0; 
+    margin-bottom: 40px; 
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: var(--secondary-color);
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
     border: 3px solid var(--background-dark);
     border-radius: 50%;
-    left: 0;
+    left: 3px;
     top: 5px;
     z-index: 1;
 }
@@ -425,7 +387,7 @@ body {
     background: var(--background-light);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: var(--shadow-subtle);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .timeline-period {
@@ -437,7 +399,7 @@ body {
 }
 
 .timeline-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--text-primary);
     margin-bottom: 5px;
 }
@@ -460,34 +422,29 @@ body {
 
 .achievement-highlight {
     font-weight: 700;
-    color: #dc3545; /* Vermelho de destaque */
+    color: var(--secondary-color);
 }
 
-/* ------------------------------------------- */
-/* 7. SEÇÃO FORMAÇÃO E CERTIFICAÇÕES */
-/* ------------------------------------------- */
+/* 7. SEÇÃO FORMAÇÃO */
 .education-grid {
-    /* Garante 2 colunas em telas maiores para melhor diagramação */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    padding-top: 10px; 
+    padding-top: 20px; 
 }
 
 .education-block {
     background-color: var(--background-dark);
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-subtle);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-top: 4px solid var(--primary-color);
 }
 
 .education-block h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--primary-color);
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .education-block h3 i {
@@ -502,12 +459,8 @@ body {
 
 .education-block li {
     margin-bottom: 15px;
-    padding: 10px;
-    border-left: 3px solid var(--secondary-color);
-    background-color: var(--background-light);
-    border-radius: 5px;
-    font-size: 1rem;
-    line-height: 1.4;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
 }
 
 .education-block li strong {
@@ -516,48 +469,40 @@ body {
     font-weight: 700;
 }
 
-
-/* ------------------------------------------- */
-/* 8. RODAPÉ / CONTATO (Visual Simplificado com Cores Distintas) */
-/* ------------------------------------------- */
+/* 8. RODAPÉ / CONTATO */
 .footer {
-    background-color: var(--primary-color); /* Fundo Azul Primário */
+    background-color: var(--primary-color);
     color: var(--text-light);
     padding: 60px 0 30px;
     text-align: center;
 }
 
 .footer .section-title {
-    color: var(--text-light); /* Título em branco */
-    font-family: 'Poppins', sans-serif; 
-}
-
-.footer .section-title::after {
-    background-color: var(--secondary-color);
+    color: var(--text-light);
 }
 
 .footer-text {
     max-width: 600px;
     margin: 0 auto 30px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .contact-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 20px;
     margin-bottom: 30px;
 }
 
-/* Estilo Básico para Links de Contato */
 .contact-link {
     text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: 700;
-    transition: opacity 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
 }
 
 .contact-link i {
@@ -565,48 +510,36 @@ body {
 }
 
 .contact-link:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+    opacity: 0.8;
 }
 
-/* Ícones de Contato com Cores Distintas (Requisitado) */
-.contact-link.email-link {
-    background-color: #D93025; /* Vermelho (Gmail/Outlook-like) */
-    color: var(--text-light);
-}
-.contact-link.whatsapp-link {
-    background-color: #25D366; /* Verde do WhatsApp */
-    color: var(--text-light);
-}
-.contact-link.linkedin-link {
-    background-color: #0A66C2; /* Azul do LinkedIn */
-    color: var(--text-light);
-}
+.contact-link.email-link { background-color: var(--color-email); }
+.contact-link.whatsapp-link { background-color: var(--color-whatsapp); }
+.contact-link.linkedin-link { background-color: var(--color-linkedin); }
+
 
 .contact-info {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
     margin-top: 20px;
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .contact-info i {
     color: var(--secondary-color);
-    margin-right: 8px;
+    margin-right: 5px;
 }
 
 .footer-copy {
     margin-top: 40px;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
 }
 
-/* ------------------------------------------- */
 /* 9. BOTÃO FLUTUANTE VOLTAR AO TOPO */
-/* ------------------------------------------- */
 #scroll-to-top {
     position: fixed;
     bottom: 20px;
@@ -640,28 +573,17 @@ body {
 
 
 /* ------------------------------------------- */
-/* 10. RESPONSIVIDADE (Mobile) - Ajustada para consistência */
+/* 10. RESPONSIVIDADE (Mobile) - CORREÇÕES CIRÚRGICAS */
 /* ------------------------------------------- */
 
 /* Para tablets e telas menores que 992px */
 @media (max-width: 992px) {
-    .container {
-        padding: 0 15px;
-    }
-    
     .nav-menu {
-        justify-content: space-around;
-        max-width: none;
+        gap: 15px;
     }
 
     .education-grid {
-        /* Muda para uma coluna em tablets */
         grid-template-columns: 1fr;
-    }
-
-    .skills-grid, .projects-grid {
-         /* Permite 2 colunas se houver espaço, se não, cai para 1 */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 
@@ -669,43 +591,41 @@ body {
 /* Para mobile e telas menores que 768px */
 @media (max-width: 768px) {
     .section {
-        padding: 70px 0;
+        padding: 60px 0;
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .hero-subtitle {
         font-size: 1.1rem;
     }
-
+    
     .navbar .container {
-        justify-content: flex-end; 
-        padding: 10px 15px;
+        justify-content: space-between;
+        height: 60px; /* Reduz a altura para mobile */
     }
 
-    .download-desktop { display: none !important; }
+    .nav-brand {
+        font-size: 1.2rem;
+    }
 
-    .download-mobile { 
-        display: inline-block !important; 
-        width: 100%; 
+    /* Oculta o botão flutuante de download no desktop */
+    .download-cv-btn.download-desktop { display: none; }
+
+    /* Estilo para o botão de download dentro do menu mobile */
+    .download-cv-btn.download-mobile {
+        display: block !important;
         font-size: 1rem;
-        /* CORREÇÃO DE DEFEITO 1: Redução do margin-top excessivo */
-        margin: 10px 20px !important; 
-        background-color: #dc3545;
+        background-color: #dc3545; /* Cor de destaque (Vermelho) */
         color: var(--text-light);
         padding: 12px 20px;
         border-radius: 8px;
-        text-decoration: none;
         font-weight: 700;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* CORREÇÃO DE DEFEITO 2: Garante que o CTA e o botão de download não tenham borda de link */
-    .nav-menu .cta-nav-btn,
-    .download-mobile {
-        border-bottom: none !important;
+        width: calc(100% - 40px); /* Garante que fique centralizado e com espaço lateral */
+        margin: 10px 20px; /* CORREÇÃO 1: Reduz o espaçamento e centraliza dentro do menu */
     }
     
     .nav-menu {
@@ -713,13 +633,14 @@ body {
         flex-direction: column;
         justify-content: flex-start;
         position: absolute;
-        top: 60px; 
+        top: 60px; /* Alinha logo abaixo do header */
         left: 0;
         width: 100%;
         background-color: var(--background-light);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
         z-index: 900;
+        min-height: calc(100vh - 60px); /* Preenche a tela toda */
     }
 
     .nav-menu.active {
@@ -737,45 +658,44 @@ body {
         background-color: var(--background-dark);
     }
     
+    /* CORREÇÃO 2: Remove a borda inferior dos itens que são botões no menu mobile */
+    .nav-menu .cta-nav-btn,
+    .nav-menu .download-mobile {
+        border-bottom: none !important;
+    }
+    
     .menu-toggle {
         display: block;
     }
 
-    /* Garante 1 coluna no mobile */
-    .skills-grid, .projects-grid {
+    /* Ajustes para layout de conteúdo no mobile */
+    .skills-grid, .projects-grid, .education-grid {
         grid-template-columns: 1fr;
     }
 
+    .timeline {
+        padding-left: 20px;
+    }
+    
     .timeline::before {
-        left: 20px; 
+        left: 10px; 
     }
     
     .timeline-item {
-        padding-left: 20px;
-        margin-left: 20px;
+        padding-left: 30px;
+        margin-left: 0;
     }
     
     .timeline-item::before {
-        left: 10px;
+        left: 0;
     }
     
-    /* Centraliza os ícones de contato no hero em telas menores */
     .hero-contact-links {
         gap: 15px;
     }
     
-    .contact-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-
-    .contact-grid, .contact-info {
+    .contact-grid {
         flex-direction: column;
         gap: 15px;
-    }
-    
-    .contact-link {
-        padding: 10px 15px;
     }
 }
