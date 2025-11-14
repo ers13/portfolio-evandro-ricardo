@@ -319,9 +319,10 @@
         const scrollTopButton = document.getElementById('scroll-to-top');
         const scrollThreshold = 400; 
 
-        // Lógica para mostrar/esconder o botão e rolar ao topo
+        // Lógica para mostrar/esconder o botão e rolar ao topo (CORREÇÃO)
         if (scrollTopButton) {
             window.addEventListener('scroll', () => {
+                // Adicionado '!' na lógica para garantir que a classe 'visible' seja adicionada
                 if (window.scrollY > scrollThreshold) {
                     scrollTopButton.classList.add('visible');
                 } else {
