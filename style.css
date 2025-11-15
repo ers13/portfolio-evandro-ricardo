@@ -168,7 +168,7 @@ body.menu-open {
     font-size: 0.9rem;
     display: inline-block;
     padding: 10px 15px;
-    background-color: #dc3545; /* Cor de destaque para o download */
+    background-color: #0056B3; /* Cor de destaque para o download */
     color: var(--text-light);
     text-decoration: none;
     border-radius: 5px;
@@ -177,7 +177,7 @@ body.menu-open {
     transition: background-color 0.3s, transform 0.3s;
 }
 .download-cv-btn.download-desktop:hover {
-    background-color: #c82333;
+    background-color: #0056B3;
     transform: scale(1.05);
 }
 
@@ -742,7 +742,7 @@ body.menu-open {
     /* Exibe o botão de download dentro do menu mobile */
     .download-mobile-menu-item { 
         display: block; 
-        background-color: #dc3545; /* Cor de destaque para o download */
+        background-color: #0056B3; /* Cor de destaque para o download */
         color: var(--text-light) !important;
         padding: 15px 20px;
         border-radius: 0;
