@@ -474,11 +474,6 @@ body.menu-open {
     margin-bottom: 8px;
 }
 
-.achievement-highlight {
-    font-weight: 700;
-    color: #dc3545; /* Vermelho de destaque */
-}
-
 /* ------------------------------------------- */
 /* 7. SEÇÃO FORMAÇÃO E CERTIFICAÇÕES */
 /* ------------------------------------------- */
@@ -707,7 +702,7 @@ body.menu-open {
     
     /* Oculta o botão flutuante de download do desktop */
     .download-cv-btn.download-desktop { 
-        display: none !important; 
+        display: none; 
     }
 
     /* Exibe o botão de menu toggle */
@@ -810,4 +805,39 @@ body.menu-open {
     .contact-link {
         padding: 10px 15px;
     }
+
+    /* Ativa a quebra de linha no título para mobile */
+    .mobile-break::before {
+        content: "\A"; /* Adiciona uma quebra de linha */
+        white-space: pre;
+    }
+
+    /* Efeito de botão para Contato na Nav (Melhoria em UX/Acessibilidade) */
+.cta-nav-btn {
+    /* Mantenha suas propriedades existentes, mas adicione ou ajuste o box-shadow */
+    background-color: var(--secondary-color);
+    color: var(--text-primary) !important; /* Cor do texto */
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    /* NOVO: Sombra sutil para destacar o botão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+}
+
+.cta-nav-btn:hover {
+    /* Ajuste de cor no hover (já existente) */
+    background-color: #ffaa00; 
+    transform: translateY(-2px);
+    /* NOVO: Sombra mais forte no hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+/* NOVO: Acessibilidade - Estado de Foco (para navegação via teclado) */
+/* Usa :focus-visible para manter o outline visível apenas ao navegar pelo teclado */
+.cta-nav-btn:focus-visible {
+    outline: 3px solid var(--primary-color); /* Contorno com a cor primária */
+    outline-offset: 2px; /* Espaçamento entre o contorno e o botão */
+    box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.4); /* Sombra suave para o foco */
+}
 }
