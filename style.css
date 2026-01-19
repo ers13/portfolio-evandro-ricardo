@@ -1,98 +1,363 @@
-:root {
-    --primary-color: #0056b3;
-    --secondary-color: #ffc107;
-    --background-dark: #f4f7f9;
-    --footer-bg: #1a1c20;
-    --text-primary: #2d3436;
-    --text-secondary: #636e72;
-    --text-light: #f8f9fa;
-    --text-muted: #a0a0a0;
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* --- 1. RESET & BASE (Sem alterações de fontes globais) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; color: var(--text-primary); line-height: 1.6; }
-
-.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
-.section { padding: 100px 0; }
-.background-dark { background-color: var(--background-dark); }
-.section-title { font-family: 'Poppins'; font-size: 2.5rem; text-align: center; margin-bottom: 60px; color: var(--primary-color); }
-
-/* Header */
-.navbar { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 15px 0; }
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 700; font-size: 1.5rem; color: #333; text-decoration: none; }
-.logo span { color: var(--primary-color); }
-.nav-menu { display: flex; gap: 30px; }
-.nav-menu a { text-decoration: none; color: #444; font-weight: 600; }
-.cta-nav-btn { background: var(--secondary-color); padding: 10px 22px; border-radius: 50px; color: #000 !important; }
-
-/* Hero */
-.hero { padding-top: 180px; text-align: center; }
-.profile-pic { width: 190px; height: 190px; border-radius: 50%; border: 6px solid #fff; box-shadow: var(--card-shadow); margin-bottom: 25px; }
-.hero-title { font-size: 3.2rem; }
-
-/* Especializações Técnicas */
-.tech-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.tech-category { background: #fff; padding: 40px; border-radius: 24px; box-shadow: var(--card-shadow); border: 1px solid #edf2f7; }
-.tech-icons { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
-.tech-item { display: flex; flex-direction: column; align-items: center; width: 95px; }
-.tech-item i { font-size: 3rem; margin-bottom: 12px; }
-.tech-item span { font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); }
-
-/* SEÇÃO DE TRAJETÓRIA MELHORADA */
-.experience-timeline { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
-.exp-card { 
-    display: flex; 
-    gap: 30px; 
-    background: #fff; 
-    padding: 40px; 
-    border-radius: 20px; 
-    box-shadow: var(--card-shadow); 
-    border-left: 8px solid var(--primary-color);
-}
-.exp-icon { 
-    min-width: 60px; height: 60px; 
-    border-radius: 15px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 1.8rem; 
-}
-.exp-icon.dev { background: rgba(0, 86, 179, 0.1); color: var(--primary-color); }
-.exp-icon.infra { background: rgba(255, 193, 7, 0.1); color: #b38600; }
-
-.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
-.exp-tag { font-size: 0.75rem; font-weight: 800; padding: 5px 12px; border-radius: 50px; text-transform: uppercase; }
-.exp-tag.dev { background: var(--primary-color); color: #fff; }
-.exp-tag.infra { background: var(--secondary-color); color: #000; }
-
-.exp-list { list-style: none; margin-top: 20px; }
-.exp-list li { margin-bottom: 10px; position: relative; padding-left: 20px; color: var(--text-secondary); }
-.exp-list li::before { 
-    content: "→"; 
-    position: absolute; 
-    left: 0; 
-    color: var(--primary-color); 
-    font-weight: bold; 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* Educação */
-.education-grid { display: grid; gap: 25px; max-width: 850px; margin: 0 auto; }
-.education-card { display: flex; align-items: center; gap: 25px; background: #fff; padding: 30px; border-radius: 20px; box-shadow: var(--card-shadow); }
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.5;
+}
 
-/* Rodapé */
-.footer { background-color: var(--footer-bg); color: var(--text-light); padding: 80px 0 0 0; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; padding-bottom: 60px; }
-.footer-nav ul { list-style: none; }
-.footer-nav ul li a { text-decoration: none; color: var(--text-muted); }
-.contact-social a { color: #fff; font-size: 2rem; margin-right: 20px; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding: 30px 0; text-align: center; }
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-@media (max-width: 768px) {
-    .exp-card { flex-direction: column; padding: 30px; }
-    .exp-header { flex-direction: column; gap: 10px; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background: #f8f9fa;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- 2. NAVBAR & MENU MOBILE --- */
+.navbar {
+    background: #fff;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #111;
+}
+
+.logo span {
+    color: #0056b3;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #0056b3;
+    cursor: pointer;
+    display: block;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    gap: 20px;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+/* --- 3. DESKTOP NAVIGATION (REVISADA PREMIUM) --- */
+@media (min-width: 992px) {
+    .menu-btn {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        gap: 35px; /* Espaçamento profissional de 35px */
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        position: relative;
+    }
+
+    /* Linha animada sob os links no hover */
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #0056b3;
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #0056b3;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .cta-btn {
+        background: #0056b3;
+        color: #fff !important;
+        padding: 10px 24px;
+        border-radius: 4px;
+        margin-left: 10px;
+        box-shadow: 0 4px 10px rgba(0, 86, 179, 0.2);
+    }
+
+    .cta-btn:hover {
+        background: #004494;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,86,179,0.3);
+    }
+
+    .cta-btn::after {
+        display: none;
+    }
+
+    /* Ajuste de Grid Desktop */
+    .grid-techs { grid-template-columns: repeat(3, 1fr); }
+    .grid-two { grid-template-columns: 1fr 1fr; }
+    .hero-title { font-size: 3.5rem; }
+}
+
+/* --- 4. HERO SECTION (SOBRE) --- */
+.hero {
+    padding-top: 140px;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 5px solid #0056b3;
+    margin-bottom: 25px;
+    object-fit: cover;
+}
+
+.hero-title {
+    font-family: 'Poppins';
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* --- 5. ESPECIALIZAÇÕES TÉCNICAS (CARDS PREMIUM) --- */
+.sec-title {
+    font-family: 'Poppins';
+    font-size: 2.2rem;
+    color: #0056b3;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.grid-techs, .grid-two {
+    display: grid;
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 86, 179, 0.1);
+}
+
+.card h3 {
+    color: #0056b3;
+    margin-bottom: 30px;
+    font-size: 1.35rem;
+    text-align: center;
+    font-family: 'Poppins';
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #ffc107;
+    border-radius: 2px;
+}
+
+.icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85px;
+}
+
+.icon-box i {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.icon-box:hover i {
+    transform: scale(1.1);
+}
+
+.icon-box span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.2px;
+}
+
+/* --- 6. TRAJETÓRIA & FORMAÇÃO --- */
+.exp-box, .edu-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.exp-box {
+    border-left: 8px solid #0056b3;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.tag.dev { background: #e7f0ff; color: #0056b3; }
+.tag.infra { background: #fff8e1; color: #b38600; }
+
+.edu-card {
+    text-align: center;
+}
+
+.edu-card i {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+/* --- 7. FOOTER --- */
+.footer {
+    background: #1a1c20;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.footer-logo {
+    font-family: 'Poppins';
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-logo span {
+    color: #0056b3;
+}
+
+.socials a {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: #ffc107;
+    transform: translateY(-5px);
+}
+
+.copy {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 25px;
 }
