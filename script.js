@@ -1,71 +1,48 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const scrollToTopBtn = document.getElementById('scroll-to-top');
-
-    // 1. Funcionalidade do Menu Mobile (Hambúrguer)
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            const isMenuOpen = navMenu.classList.contains('active');
-            if (isMenuOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
-
-        // Fechar o menu ao clicar em um link de navegação (âncora)
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Verifica se o link é uma âncora interna
-                if (link.getAttribute('href').startsWith('#')) {                    
-                    closeMenu();
-                }
-            });
-        });
-
-        const openMenu = () => {
-            menuToggle.setAttribute('aria-expanded', 'true');
-            navMenu.classList.add('active');
-            document.body.classList.add('menu-open');
-        };
-
-        const closeMenu = () => {
-            menuToggle.setAttribute('aria-expanded', 'false');
-            navMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        };
-    }
-
-    // 2. Funcionalidade do Botão Voltar ao Topo
-    if (scrollToTopBtn) {
-        // Mostra ou esconde o botão
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
-
-        // Comportamento de scroll suave
-        scrollToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
     
-    // 3. Inicialização do AOS (Animate On Scroll)
-    // Verifica se a biblioteca AOS foi carregada no HTML
+    // 1. Inicialização do AOS (Animate On Scroll)
+    // Garante que as seções apareçam suavemente conforme o usuário desce a página
     if (typeof AOS !== 'undefined') {
         AOS.init({
-            duration: 1000, // Duração da animação em ms
-            once: true,     // Se a animação deve ocorrer apenas uma vez
+            duration: 1000, // Duração da animação em milissegundos
+            once: true,     // Anima apenas uma vez ao rolar
+            offset: 100,    // Distância para disparar a animação
+            easing: 'ease-in-out'
         });
     }
+
+    // 2. Comportamento da Navbar no Scroll
+    // Adiciona uma sombra e reduz o tamanho do header ao rolar para um visual "Premium"
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.style.padding = '10px 0';
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.padding = '15px 0';
+            navbar.style.background = '#ffffff';
+            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+        }
+    });
+
+    // 3. Scroll Suave para Links Internos
+    // Melhora a experiência de navegação entre as seções
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Compensação da altura do header fixo
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 4. Log de Sucesso (Opcional - Bom para Debug)
+    console.log("Portfólio de Evandro Ricardo carregado com sucesso! Versão 2026.");
 });
