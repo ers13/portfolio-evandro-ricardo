@@ -2,187 +2,132 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" as="image" href="Evandro-Ricardo.webp">
-    <title>Portfólio | Evandro Ricardo da Silva</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Evandro Ricardo | Full Stack & Infraestrutura</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo">EVANDRO<span>.DEV</span></div>
-            <nav class="nav-menu">
+        <div class="container nav-flex">
+            <a href="#" class="logo">EVANDRO<span>.DEV</span></a>
+            <button class="menu-btn" id="menu-btn" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="nav-links">
                 <a href="#sobre">Sobre</a>
                 <a href="#stack">Tecnologias</a>
                 <a href="#experiencia">Trajetória</a>
                 <a href="#formacao">Formação</a>
-                <a href="#contato" class="cta-nav-btn">Contato</a>
+                <a href="#contato" class="cta-btn">Contato</a>
             </nav>
         </div>
     </header>
 
     <main>
         <section id="sobre" class="hero section">
-            <div class="container" style="text-align: center;">
-                <img src="Evandro-Ricardo.webp" alt="Evandro Ricardo" class="profile-pic" data-aos="zoom-in">
+            <div class="container text-center">
+                <img src="Evandro-Ricardo.webp" alt="Evandro Ricardo" class="profile-img" data-aos="zoom-in">
                 <h1 class="hero-title" data-aos="fade-up">Evandro Ricardo</h1>
-                <h2 class="hero-subtitle" data-aos="fade-up">Desenvolvedor Web Full Stack | Especialista em Infraestrutura de TI</h2>
-                <div class="hero-summary" data-aos="fade-up">
-                    <p>Uno a <strong>precisão do hardware</strong> com a <strong>agilidade do software</strong>. Foco na criação de aplicações web modernas utilizando o ecossistema <strong>JavaScript (React & Node.js)</strong> e gestão de ambientes <strong>Linux/Windows Server</strong>.</p>
+                <p class="hero-subtitle" data-aos="fade-up">Desenvolvedor Web Full Stack | Especialista em Infraestrutura de TI</p>
+                <div class="hero-desc" data-aos="fade-up">
+                    <p>Unindo a precisão do hardware com a agilidade do software. Especialista em soluções escaláveis com <strong>React, Node.js e PHP</strong>, além de gestão de ambientes críticos <strong>Linux e Windows Server</strong>.</p>
                 </div>
             </div>
         </section>
 
-        <section id="stack" class="section background-dark">
+        <section id="stack" class="section bg-light">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Especializações Técnicas</h2>
-                <div class="tech-showcase">
-                    
-                    <div class="tech-category" data-aos="fade-right">
-                        <h3><i class="fas fa-server"></i> Infra & Servers</h3>
-                        <div class="tech-icons">
-                            <div class="tech-item"><i class="devicon-linux-plain"></i> <span>Linux</span></div>
-                            <div class="tech-item"><i class="devicon-windows8-original colored"></i> <span>Windows Server</span></div>
-                            <div class="tech-item"><i class="fas fa-network-wired" style="color: #0056b3;"></i> <span>Redes</span></div>
-                            <div class="tech-item"><i class="devicon-docker-plain colored"></i> <span>Docker</span></div>
+                <h2 class="sec-title" data-aos="fade-up">Especializações Técnicas</h2>
+                <div class="grid-techs">
+                    <div class="card" data-aos="fade-up">
+                        <h3>Infra & Servers</h3>
+                        <div class="icons">
+                            <div class="icon-box"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
+                            <div class="icon-box"><i class="devicon-windows8-original colored"></i><span>Win Server</span></div>
+                            <div class="icon-box"><i class="fas fa-network-wired" style="color: #0056b3;"></i><span>Redes</span></div>
+                            <div class="icon-box"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
                         </div>
                     </div>
-
-                    <div class="tech-category" data-aos="fade-up">
-                        <h3><i class="fas fa-code"></i> Backend Development</h3>
-                        <div class="tech-icons">
-                            <div class="tech-item"><i class="devicon-python-plain colored"></i> <span>Python</span></div>
-                            <div class="tech-item"><i class="devicon-php-plain colored"></i> <span>PHP</span></div>
-                            <div class="tech-item"><i class="devicon-nodejs-plain colored"></i> <span>Node.js</span></div>
-                            <div class="tech-item"><i class="devicon-git-plain colored"></i> <span>GIT</span></div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Backend</h3>
+                        <div class="icons">
+                            <div class="icon-box"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+                            <div class="icon-box"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+                            <div class="icon-box"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+                            <div class="icon-box"><i class="devicon-git-plain colored"></i><span>GIT</span></div>
                         </div>
                     </div>
-
-                    <div class="tech-category" data-aos="fade-left">
-                        <h3><i class="fas fa-laptop-code"></i> Modern Web</h3>
-                        <div class="tech-icons">
-                            <div class="tech-item"><i class="devicon-react-original colored"></i> <span>React.js</span></div>
-                            <div class="tech-item"><i class="devicon-javascript-plain colored"></i> <span>JavaScript</span></div>
-                            <div class="tech-item"><i class="devicon-html5-plain colored"></i> <span>HTML5</span></div>
-                            <div class="tech-item"><i class="devicon-css3-plain colored"></i> <span>CSS3</span></div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Modern Web</h3>
+                        <div class="icons">
+                            <div class="icon-box"><i class="devicon-react-original colored"></i><span>React.js</span></div>
+                            <div class="icon-box"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                            <div class="icon-box"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+                            <div class="icon-box"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
         <section id="experiencia" class="section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Trajetória Profissional</h2>
-                <div class="experience-timeline">
-                    
-                    <div class="exp-card" data-aos="fade-up">
-                        <div class="exp-icon dev"><i class="fas fa-laptop-code"></i></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <h3>Desenvolvimento Web & E-commerce</h3>
-                                <span class="exp-tag dev">Dev Focus</span>
-                            </div>
-                            <p>Especialista na criação de sites institucionais modernos e plataformas de e-commerce personalizadas. Foco em performance, SEO e experiência do usuário (UX).</p>
-                            <ul class="exp-list">
-                                <li>Desenvolvimento de lojas virtuais completas com integração de pagamentos e estoque.</li>
-                                <li>Criação de Landing Pages de alta conversão para negócios locais e infoprodutos.</li>
-                                <li>Manutenção e otimização de sistemas legados em PHP e migração para arquiteturas modernas.</li>
-                            </ul>
-                        </div>
+                <h2 class="sec-title" data-aos="fade-up">Trajetória Profissional</h2>
+                <div class="grid-two">
+                    <div class="exp-box" data-aos="fade-right">
+                        <span class="tag dev">Desenvolvimento</span>
+                        <h4>Websites & E-commerces</h4>
+                        <p>Foco em plataformas institucionais e lojas virtuais de alta performance e conversão.</p>
                     </div>
-
-                    <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="exp-icon infra"><i class="fas fa-server"></i></div>
-                        <div class="exp-content">
-                            <div class="exp-header">
-                                <h3>Suporte Operacional & Infraestrutura</h3>
-                                <span class="exp-tag infra">Infra Focus</span>
-                            </div>
-                            <p>Sólida atuação técnica voltada para a estabilidade de ecossistemas corporativos críticos.</p>
-                            <ul class="exp-list">
-                                <li>Administração de ambientes Windows Server e Servidores Linux.</li>
-                                <li>Gestão de infraestrutura de redes (Switching, Routing e Segurança).</li>
-                                <li>Manutenção preditiva e corretiva de hardware de alta disponibilidade.</li>
-                            </ul>
-                        </div>
+                    <div class="exp-box" data-aos="fade-left">
+                        <span class="tag infra">Infraestrutura</span>
+                        <h4>Suporte & Servidores</h4>
+                        <p>Gestão técnica de ambientes corporativos, segurança de rede e hardware de missão crítica.</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <section id="formacao" class="section background-dark">
+        <section id="formacao" class="section bg-light">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Formação Acadêmica</h2>
-                <div class="education-grid">
-                    <div class="education-card" data-aos="fade-up">
-                        <div class="edu-icon"><i class="fas fa-university"></i></div>
-                        <div class="edu-info">
-                            <h3>Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
-                            <p class="institution">FATEC de Praia Grande * Centro Paula Souza</p>
-                            <span class="date">A concluir</span>
-                        </div>
+                <h2 class="sec-title" data-aos="fade-up">Formação Acadêmica</h2>
+                <div class="grid-two">
+                    <div class="edu-card" data-aos="flip-up">
+                        <i class="fas fa-university"></i>
+                        <h4>Análise e Desenvolvimento de Sistemas</h4>
+                        <p><strong>FATEC</strong> - Praia Grande</p>
                     </div>
-                    <div class="education-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div class="edu-info">
-                            <h3>Técnico em Informática</h3>
-                            <p class="institution">ETEC de Praia Grande</p>
-                            <span class="date">Concluído</span>
-                        </div>
+                    <div class="edu-card" data-aos="flip-up" data-aos-delay="100">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Técnico em Informática</h4>
+                        <p><strong>ETEC</strong> - Praia Grande</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <footer id="contato" class="footer">
-            <div class="container footer-grid">
-                <div class="footer-about">
-                    <div class="logo light">EVANDRO<span>.DEV</span></div>
-                    <p>Especialista em unir a infraestrutura de TI ao desenvolvimento web moderno. Vamos elevar o patamar do seu projeto?</p>
-                </div>
-                
-                <div class="footer-nav">
-                    <h4>Navegação</h4>
-                    <ul>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#stack">Tecnologias</a></li>
-                        <li><a href="#experiencia">Trajetória</a></li>
-                        <li><a href="#formacao">Formação</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>Conecte-se</h4>
-                    <div class="contact-social">
-                        <a href="https://www.linkedin.com/in/evandro-ricardo-da-silva/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://wa.me/5513991535257" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="mailto:tecnico.evandro@outlook.com"><i class="fas fa-envelope"></i></a>
-                    </div>
-                    <p class="footer-email">tecnico.evandro@outlook.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <p>&copy; 2026 Evandro Ricardo da Silva. Todos os direitos reservados.</p>
-                </div>
-            </div>
-        </footer>
     </main>
 
+    <footer id="contato" class="footer">
+        <div class="container text-center">
+            <div class="footer-logo">EVANDRO<span>.DEV</span></div>
+            <div class="socials">
+                <a href="https://www.linkedin.com/in/evandro-ricardo-da-silva/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/5513991535257" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:tecnico.evandro@outlook.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copy">&copy; 2026 Evandro Ricardo da Silva. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
+    <script src="script.js"></script>
 </body>
 </html>
