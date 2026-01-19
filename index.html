@@ -5,344 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" as="image" href="Evandro-Ricardo.webp">
     <title>Portfólio | Evandro Ricardo da Silva</title>
-    <meta name="description" content="Portfólio de Evandro Ricardo da Silva, profissional multidisciplinar com foco em Suporte Operacional, Infraestrutura de TI e Desenvolvimento.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- 1. CSS Crítico Injetado para Performance Máxima -->
-    <style>
-        :root{--primary-color:#0056b3;--secondary-color:#ffc107;--background-light:#fff;--background-dark:#f0f3f6;--text-primary:#212529;--text-secondary:#555;--text-light:#fff;--border-color:#e0e0e0;--shadow-subtle:0 8px 15px rgba(0,0,0,.08)}*,:after,:before{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{font-family:'Inter','Segoe UI','Roboto',sans-serif;background-color:var(--background-light);color:var(--text-primary);line-height:1.6}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.container{max-width:1200px;margin:0 auto;padding:0 20px}.section{padding:100px 0}.section-title,.hero-title{font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:700;color:var(--primary-color);margin-bottom:50px;text-align:center;position:relative}.hero-title{font-size:3.5rem}.navbar{background-color:var(--background-light);box-shadow:0 2px 8px rgba(0,0,0,.08);position:fixed;width:100%;top:0;left:0;z-index:1000}.navbar .container{display:flex;justify-content:center;align-items:center;padding:15px 20px}.nav-menu{display:flex;flex-direction:row;justify-content:space-around;flex-grow:1;max-width:100%;align-items:center}.nav-menu a{color:var(--text-primary);text-decoration:none;font-weight:600;transition:color .3s,border-bottom .3s;padding:5px 0}.nav-menu .cta-nav-btn{background-color:var(--secondary-color);color:var(--text-primary)!important;padding:8px 15px;border-radius:5px;font-weight:700;transition:background-color .3s,transform .2s,box-shadow .3s;box-shadow:0 4px 8px rgba(0,0,0,.15);border-bottom:none}.download-mobile-menu-item{display:none}.menu-toggle{display:none;background:0 0;border:none;font-size:1.5rem;color:var(--text-primary);cursor:pointer}.hero{background:linear-gradient(135deg,var(--background-dark),var(--background-light));text-align:center;padding-top:150px;padding-bottom:80px}.profile-pic{width:180px;height:180px;object-fit:cover;border-radius:50%;border:5px solid var(--background-light);box-shadow:var(--shadow-subtle);margin-bottom:30px}.hero-subtitle{font-size:1.2rem;font-weight:400;color:var(--text-secondary);margin-bottom:40px}@media (max-width:768px){.hero-title{font-size:2.5rem}.navbar .container{justify-content:flex-end;padding:10px 15px}.menu-toggle{display:block}.nav-menu{visibility:hidden;opacity:0;transform:translateX(100%);transition:transform .3s ease-in-out,opacity .3s,visibility .3s;flex-direction:column;justify-content:flex-start;position:absolute;top:60px;left:0;width:100%;background-color:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);box-shadow:0 5px 10px rgba(0,0,0,.1);padding:10px 0;z-index:900;max-height:calc(100vh - 60px);overflow-y:auto}.nav-menu.active{visibility:visible;opacity:1;transform:translateX(0)}.mobile-break:before{content:"\A";white-space:pre}}
-    </style>
-
-    <!-- 2. Carregamento assíncrono do CSS completo -->
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Botão de Download Flutuante (Desktop ) -->
-    <a href="Evandro Ricardo-Curriculo Vitae.pdf" download class="download-cv-btn download-desktop">
-        <i class="fas fa-file-download" aria-hidden="true"></i> Download Currículo (PDF)
-    </a>
-
     <header class="navbar">
-        <div class="container">
-            
-            <!-- Logo/Nome (Removido) -->
-            
-
-            <nav class="nav-menu" id="nav-menu">
+        <div class="container nav-container">
+            <div class="logo">EVANDRO<span>.DEV</span></div>
+            <nav class="nav-menu">
                 <a href="#sobre">Sobre</a>
-                <a href="#habilidades">Habilidades</a>
-                <a href="#projetos">Projetos</a> 
-                <a href="#experiencia">Experiência</a>
+                <a href="#stack">Tecnologias</a>
+                <a href="#experiencia">Trajetória</a>
                 <a href="#formacao">Formação</a>
                 <a href="#contato" class="cta-nav-btn">Contato</a>
-                
-                <!-- Botão de Download (Mobile - Item de Menu) -->
-                <a href="Evandro Ricardo-Curriculo Vitae.pdf" download class="download-cv-btn download-mobile-menu-item">
-                    <i class="fas fa-file-download" aria-hidden="true"></i> Download Currículo (PDF)
-                </a>
             </nav>
-            <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Abrir Menu de Navegação">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-                <span class="visually-hidden">Menu</span>
-            </button>
         </div>
     </header>
 
     <main>
         <section id="sobre" class="hero section">
-            <div class="container">
-                <div class="hero-content">
-                    <img src="Evandro-Ricardo.webp" alt="Foto de Perfil de Evandro Ricardo da Silva" class="profile-pic" width="180" height="180" data-aos="zoom-in"> 
-                    
-                    <h1 class="hero-title" data-aos="fade-up">Evandro Ricardo <span class="mobile-break">da Silva</span></h1>
-                    
-                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200"><strong>Profissional Sênior Multidisciplinar em TI, Gestão Operacional e Manutenção Técnica</strong></p>
-                    
-                    <div class="hero-summary" data-aos="fade-up" data-aos-delay="400">
-                        <p>
-                            Profissional <strong>multidisciplinar</strong> e <strong>estratégico</strong> com mais de 10 anos de experiência consolidada nas áreas Administrativa, Técnica e Operacional. Minha atuação é focada em garantir a <strong>eficiência, a continuidade e a segurança dos processos</strong>, abrangendo desde a infraestrutura de Tecnologia da Informação (T.I.) até a gestão de rotinas administrativas e a manutenção predial.
-                        </p>
-                        <p>
-                            Possuo uma <strong>visão sistêmica apurada</strong>, que me permite atuar com excelência em diversas frentes, como suporte técnico (Hardware, Redes, Software), gestão de documentos e otimização de sistemas (Superlógica, PRG). Sou proficiente em <strong>resolver problemas complexos</strong>, mantendo o foco na qualidade e na redução de custos operacionais.
-                        </p>
-                        <p>
-                            Meu <strong>diferencial técnico</strong> inclui conhecimentos em manutenção predial (Elétrica, Hidráulica, Reparos Gerais) e desenvolvimento web (HTML, CSS, Java Script, PHP, WordPress, Joomla), permitindo-me oferecer soluções completas e integradas. Busco um ambiente que valorize a <strong>versatilidade</strong> e a capacidade de adaptação para impulsionar resultados.
-                        </p>
-                        <p class="key-competencies">
-                            <strong>Competências Essenciais:</strong> Suporte Técnico em T.I. (Hardware, Redes, Software), Gestão de Rotinas Administrativas, Controle de Documentação, Otimização de Sistemas (Superlógica, PRG), <em>Versatilidade</em>, <em>Organização</em>, <em>Proatividade</em>, <em>Foco em Solução de Problemas</em> e Atendimento Humanizado.
-                        </p>
-                    </div>
-                </div>
-                <div class="hero-contact-links">
-                    <a href="mailto:tecnico.evandro@outlook.com" class="contact-icon email-link" data-aos="zoom-in" aria-label="E-mail">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://wa.me/5513991535257" target="_blank" rel="noopener noreferrer" class="contact-icon whatsapp-link" data-aos="zoom-in" data-aos-delay="100" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/evandro-ricardo-da-silva/" target="_blank" rel="noopener noreferrer" class="contact-icon linkedin-link" data-aos="zoom-in" data-aos-delay="200" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
+            <div class="container" style="text-align: center;">
+                <img src="Evandro-Ricardo.webp" alt="Evandro Ricardo" class="profile-pic" data-aos="zoom-in">
+                <h1 class="hero-title" data-aos="fade-up">Evandro Ricardo</h1>
+                <h2 class="hero-subtitle" data-aos="fade-up">Desenvolvedor Web Full Stack | Especialista em Infraestrutura de TI</h2>
+                <div class="hero-summary" data-aos="fade-up">
+                    <p>Uno a <strong>precisão do hardware</strong> com a <strong>agilidade do software</strong>. Foco na criação de aplicações web modernas utilizando o ecossistema <strong>JavaScript (React & Node.js)</strong> e gestão de ambientes <strong>Linux/Windows Server</strong>.</p>
                 </div>
             </div>
         </section>
 
-        <section id="habilidades" class="section background-dark">
+        <section id="stack" class="section background-dark">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-right">Habilidades Principais</h2>
-                <div class="skills-grid">
-                    <div class="skill-card" data-aos="fade-up">
-                        <i class="fas fa-cogs skill-icon"></i>
-                        <h3 class="skill-title">Tecnologia da Informação</h3>
-                        <ul class="skill-description">
-                            <li>Manutenção de Hardware (PCs, Notebooks )</li>
-                            <li>Sistemas Operacionais (Windows, Linux)</li>
-                            <li>Pacote Office (Avançado)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-network-wired skill-icon"></i>
-                        <h3 class="skill-title">Infraestrutura e Redes</h3>
-                        <ul class="skill-description">
-                            <li>Configuração de Redes Locais (LAN)</li>
-                            <li>Cabeamento Estruturado</li>
-                            <li>Diagnóstico de Conectividade</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fas fa-code skill-icon"></i>
-                        <h3 class="skill-title">Desenvolvimento Web</h3>
-                        <ul class="skill-description">
-                            <li>HTML, CSS, JavaScript, PHP</li>
-                            <li>CMS (WordPress, Joomla)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up">
-                        <i class="fas fa-tasks skill-icon"></i>
-                        <h3 class="skill-title">Gestão & Administrativo</h3>
-                        <ul class="skill-description">
-                            <li>Controle de Documentos e Inventário</li>
-                            <li>Logística Operacional</li>
-                            <li>Sistemas ERP (Superlógica, PRG)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-tools skill-icon"></i>
-                        <h3 class="skill-title">Manutenção Predial</h3>
-                        <ul class="skill-description">
-                            <li>Elétrica Básica e Hidráulica</li>
-                            <li>Reparos Estruturais</li>
-                            <li>Eletrônica de Bancada</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fas fa-users skill-icon"></i>
-                        <h3 class="skill-title">Competências</h3>
-                        <ul class="skill-description">
-                            <li>Visão Multidisciplinar e Adaptabilidade</li>
-                            <li>Gestão por Resultados</li>
-                            <li>Proatividade e Foco em Soluções</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="projetos" class="section">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-right">Projetos e Otimização de Processos</h2>
-                <div class="projects-grid">
+                <h2 class="section-title" data-aos="fade-up">Especializações Técnicas</h2>
+                <div class="tech-showcase">
                     
-                    <div class="project-card" data-aos="flip-left">
-                        <i class="fas fa-barcode project-icon"></i>
-                        <h3 class="project-title">Sistema de Catalogação (Lupi)</h3>
-                        <p class="project-description">Liderei a criação e implementação de um sistema de catalogação com código de barras para todos os produtos, <strong>elevando a precisão administrativa e a eficiência</strong> no controle de estoque e caixa da loja.</p>
-                    </div>
-                    
-                    <div class="project-card" data-aos="flip-left" data-aos-delay="150">
-                        <i class="fas fa-file-signature project-icon"></i>
-                        <h3 class="project-title">Reformulação Visual Corporativa (Alternativa)</h3>
-                        <p class="project-description">Criei a nova identidade visual da empresa (logotipo, crachás) e reformulei o layout de balancetes, <strong>melhorando a imagem corporativa e a clareza</strong> da comunicação com os condomínios.</p>
+                    <div class="tech-category" data-aos="fade-right">
+                        <h3><i class="fas fa-server"></i> Infra & Servers</h3>
+                        <div class="tech-icons">
+                            <div class="tech-item"><i class="devicon-linux-plain"></i> <span>Linux</span></div>
+                            <div class="tech-item"><i class="devicon-windows8-original colored"></i> <span>Windows Server</span></div>
+                            <div class="tech-item"><i class="fas fa-network-wired" style="color: #0056b3;"></i> <span>Redes</span></div>
+                            <div class="tech-item"><i class="devicon-docker-plain colored"></i> <span>Docker</span></div>
+                        </div>
                     </div>
 
-                    <div class="project-card" data-aos="flip-left" data-aos-delay="300">
-                        <i class="fas fa-tools project-icon"></i>
-                        <h3 class="project-title">Gestão de Infraestrutura e Logística (Reviver)</h3>
-                        <p class="project-description">Gerenciei e executei manutenções estruturais complexas (telhado, piso, pintura), <strong>garantindo a segurança e a continuidade operacional</strong>, além de otimizar o fluxo de compras e transporte de internos.</p>
+                    <div class="tech-category" data-aos="fade-up">
+                        <h3><i class="fas fa-code"></i> Backend Development</h3>
+                        <div class="tech-icons">
+                            <div class="tech-item"><i class="devicon-python-plain colored"></i> <span>Python</span></div>
+                            <div class="tech-item"><i class="devicon-php-plain colored"></i> <span>PHP</span></div>
+                            <div class="tech-item"><i class="devicon-nodejs-plain colored"></i> <span>Node.js</span></div>
+                            <div class="tech-item"><i class="devicon-git-plain colored"></i> <span>GIT</span></div>
+                        </div>
                     </div>
-                    
+
+                    <div class="tech-category" data-aos="fade-left">
+                        <h3><i class="fas fa-laptop-code"></i> Modern Web</h3>
+                        <div class="tech-icons">
+                            <div class="tech-item"><i class="devicon-react-original colored"></i> <span>React.js</span></div>
+                            <div class="tech-item"><i class="devicon-javascript-plain colored"></i> <span>JavaScript</span></div>
+                            <div class="tech-item"><i class="devicon-html5-plain colored"></i> <span>HTML5</span></div>
+                            <div class="tech-item"><i class="devicon-css3-plain colored"></i> <span>CSS3</span></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-        
-        <section id="experiencia" class="section background-dark">
+
+        <section id="experiencia" class="section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-right">Experiência Relevante</h2>
-                <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-content">
-                            <span class="timeline-period">Mar/2025 – Out/2025</span>
-                            <h3 class="timeline-title">Auxiliar de Manutenção e Suporte Operacional</h3>
-                            <p class="timeline-company">Casa de Repouso Reviver – Praia Grande/SP</p>
-                            <ul>
-                                <li>Assegurei a <strong>continuidade operacional</strong> através da gestão e execução de manutenções preventivas e corretivas (Predial, T.I. e equipamentos internos como cadeiras de rodas).</li>
-                                <li>Otimizei a rotina administrativa com a <strong>elaboração e implementação de planilhas e formulários</strong> para a Administração e RH.</li>
-                                <li>Garantia de Infraestrutura Completa: Responsável por manutenção estrutural abrangente (troca de telhado, piso, pintura) e técnica de T.I. (computadores, impressoras).</li>
-                                <li>Liderei a organização, classificação e controle de estoque e inventário, otimizando o processo de compras e logística de transporte.</li>
-                            </ul>
-                        </div>
-                    </div>
+                <h2 class="section-title" data-aos="fade-up">Trajetória Profissional</h2>
+                <div class="experience-timeline">
                     
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
-                        <div class="timeline-content">
-                            <span class="timeline-period">Jun/2019 – Nov/2020</span>
-                            <h3 class="timeline-title">Auxiliar Técnico Administrativo e Técnico de Infraestrutura de TI</h3>
-                            <p class="timeline-company">Alternativa Assessoria Condominial Ltda.</p>
-                            <ul>
-                                <li>Gestão de Infraestrutura de T.I. e Sistemas: Administração completa da rede interna, manutenção de hardware e software, e gestão de sistemas operacionais.</li>
-                                <li>Melhoria na Comunicação Visual: Reformulei o layout de balancetes e criei a nova identidade visual (logotipo, crachás), padronizando a comunicação.</li>
-                                <li>Analisei e levantei problemas estruturais em condomínios para produção de relatórios cruciais utilizados nas assembleias de síndicos.</li>
-                                <li>Centralizei e padronizei o controle de expedição de todas as correspondências físicas e digitais da administradora.</li>
+                    <div class="exp-card" data-aos="fade-up">
+                        <div class="exp-icon dev"><i class="fas fa-laptop-code"></i></div>
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <h3>Desenvolvimento Web & E-commerce</h3>
+                                <span class="exp-tag dev">Dev Focus</span>
+                            </div>
+                            <p>Especialista na criação de sites institucionais modernos e plataformas de e-commerce personalizadas. Foco em performance, SEO e experiência do usuário (UX).</p>
+                            <ul class="exp-list">
+                                <li>Desenvolvimento de lojas virtuais completas com integração de pagamentos e estoque.</li>
+                                <li>Criação de Landing Pages de alta conversão para negócios locais e infoprodutos.</li>
+                                <li>Manutenção e otimização de sistemas legados em PHP e migração para arquiteturas modernas.</li>
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="timeline-content">
-                            <span class="timeline-period">Set/2011 – Mai/2019</span>
-                            <h3 class="timeline-title">Gerente de Operações e Coordenador Técnico de T.I.</h3>
-                            <p class="timeline-company">Lupi Informática Ltda – ME</p>
-                            <ul>
-                                <li>Implementação de Sistemas de Controle: Implementei um sistema de catalogação com código de barras, elevando a precisão administrativa e eficiência no controle de estoque e caixa.</li>
-                                <li>Atuei na gestão comercial completa (compra e venda de materiais) e prestei suporte técnico de T.I. (manutenção de computadores) para a loja e clientes.</li>
-                                <li>Coordenei o desenvolvimento e manutenção do <strong>website institucional da loja</strong> (HTML, WordPress, Joomla).</li>
+
+                    <div class="exp-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="exp-icon infra"><i class="fas fa-server"></i></div>
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <h3>Suporte Operacional & Infraestrutura</h3>
+                                <span class="exp-tag infra">Infra Focus</span>
+                            </div>
+                            <p>Sólida atuação técnica voltada para a estabilidade de ecossistemas corporativos críticos.</p>
+                            <ul class="exp-list">
+                                <li>Administração de ambientes Windows Server e Servidores Linux.</li>
+                                <li>Gestão de infraestrutura de redes (Switching, Routing e Segurança).</li>
+                                <li>Manutenção preditiva e corretiva de hardware de alta disponibilidade.</li>
                             </ul>
                         </div>
                     </div>
-                    
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="450">
-                        <div class="timeline-content">
-                            <span class="timeline-period">Mai/2007 – Ago/2011</span>
-                            <h3 class="timeline-title">Técnico Especialista em Instalação e Reparo de Telecomunicações</h3>
-                            <p class="timeline-company">Koerich Engenharia e Telecomunicações Ltda.</p>
-                            <ul>
-                                <li>Fui o primeiro técnico a alcançar e certificar a Rota 17 no padrão de qualidade exigido pela Anatel, sendo premiado pelo feito.</li>
-                                <li>Realizei serviços de instalação e reparo de linhas aéreas e serviços ADSL, garantindo a qualidade e o alto índice de resolutividade em campo.</li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
-        
-        <section id="formacao" class="section">
+
+        <section id="formacao" class="section background-dark">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-right">Formação e Certificações</h2>
+                <h2 class="section-title" data-aos="fade-up">Formação Acadêmica</h2>
                 <div class="education-grid">
-                    <div class="education-block" data-aos="fade-up">
-                        <h3><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h3>
-                        <ul>
-                            <li>
-                                <strong>Técnico em Informática</strong>  
-
-                                ETEC de Praia Grande (Concluído em 2014)
-                            </li>
-                            <li>
-                                <strong>Análise e Desenvolvimento de Sistemas</strong>  
-
-                                FATEC de Praia Grande (Em pausa)
-                            </li>
-                            <li>
-                                <strong>Marketing Digital</strong>  
-
-                                Uninter - Pólo Cubatão - EAD (Em pausa)
-                            </li>
-                        </ul>
+                    <div class="education-card" data-aos="fade-up">
+                        <div class="edu-icon"><i class="fas fa-university"></i></div>
+                        <div class="edu-info">
+                            <h3>Tecnólogo em Análise e Desenvolvimento de Sistemas</h3>
+                            <p class="institution">FATEC de Praia Grande * Centro Paula Souza</p>
+                            <span class="date">A concluir</span>
+                        </div>
                     </div>
-                    <div class="education-block" data-aos="fade-up" data-aos-delay="150">
-                        <h3><i class="fas fa-certificate"></i> Certificações e Cursos</h3>
-                        <ul>
-                            <li>
-                                <strong>Cabeamento Estruturado em Redes</strong>  
-
-                                SENAI São Paulo
-                            </li>
-                            <li>
-                                <strong>Desenvolvimento de Softwares</strong>  
-
-                                SENAI São Paulo
-                            </li>
-                            <li>
-                                <strong>Eletrônica de Bancada e Manutenção de Notebooks</strong>  
-
-                                TECNOPONTA Santos
-                            </li>
-                            <li>
-                                <strong>Manutenção de Computadores</strong>  
-
-                                SENAC Santos
-                            </li>
-                            <li>
-                                <strong>Sistemas de Gestão</strong>  
-
-                                Treinamento em Superlógica e PRG
-                            </li>
-                        </ul>
+                    <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="edu-info">
+                            <h3>Técnico em Informática</h3>
+                            <p class="institution">ETEC de Praia Grande</p>
+                            <span class="date">Concluído</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <footer id="contato" class="section footer">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
-                <p class="footer-text" data-aos="fade-up" data-aos-delay="100">
-                    Estou sempre aberto a novas oportunidades e desafios. Utilize os links abaixo para me contatar diretamente.
-                </p>
 
-                <div class="contact-grid" data-aos="fade-up" data-aos-delay="200">
-                    <a href="mailto:tecnico.evandro@outlook.com" class="contact-link email-link">
-                        <i class="fas fa-envelope"></i> E-mail
-                    </a>
-                    <a href="https://wa.me/5513991535257" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp-link">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="https://www.linkedin.com/in/evandro-ricardo-da-silva/" target="_blank" rel="noopener noreferrer" class="contact-link linkedin-link">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
+        <footer id="contato" class="footer">
+            <div class="container footer-grid">
+                <div class="footer-about">
+                    <div class="logo light">EVANDRO<span>.DEV</span></div>
+                    <p>Especialista em unir a infraestrutura de TI ao desenvolvimento web moderno. Vamos elevar o patamar do seu projeto?</p>
                 </div>
-
-                <div class="contact-info">
-                    <span><i class="fas fa-map-marker-alt"></i> Praia Grande, SP</span>
-                    <span><i class="fas fa-phone"></i> (13 ) 99153-5257</span>
+                
+                <div class="footer-nav">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#stack">Tecnologias</a></li>
+                        <li><a href="#experiencia">Trajetória</a></li>
+                        <li><a href="#formacao">Formação</a></li>
+                    </ul>
                 </div>
-
-                <p class="footer-copy">
-                    &copy; 2025 Evandro Ricardo da Silva. Todos os direitos reservados.
-                </p>
+                
+                <div class="footer-contact">
+                    <h4>Conecte-se</h4>
+                    <div class="contact-social">
+                        <a href="https://www.linkedin.com/in/evandro-ricardo-da-silva/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/5513991535257" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:tecnico.evandro@outlook.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <p class="footer-email">tecnico.evandro@outlook.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>&copy; 2026 Evandro Ricardo da Silva. Todos os direitos reservados.</p>
+                </div>
             </div>
         </footer>
     </main>
 
-    <!-- Botão Voltar ao Topo (Controlado por script.js) -->
-    <button id="scroll-to-top" aria-label="Voltar ao Topo">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 </html>
-
-
-
